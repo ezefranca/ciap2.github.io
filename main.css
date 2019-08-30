@@ -1,0 +1,148 @@
+/* -------------------------------------- */
+/* BASIC STYLING OF THE DOCUMENT */
+/* -------------------------------------- */
+
+@font-face {
+  font-family: Fakt Pro;
+  src: url(./fonts/FaktPro-Normal.woff);
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+html {
+	background-color: #22b4e0;
+	color: #fff;
+	font-family: Fakt Pro, Sans-Serif;
+	font-size: 20px;
+	text-rendering: optimizeLegibility;
+}
+
+/* -------------------------------------- */
+/* REUSABLE COMPONENTS */
+/* -------------------------------------- */
+
+h1 {
+	margin: 0 0;
+	font-size: 360%;
+}
+
+h2 {
+	margin-top: 30%;
+	font-size: 200%
+}
+
+.phone-screenshot {
+	height: 600px;
+	margin-top: 10%;
+	margin-left: 40%;
+}
+
+.long-copy {
+	font-size: 140%;
+	text-align: left;
+	margin-top: 30px;
+	padding-right: 40%
+}
+
+.row {
+	display: flex;
+	justify-content: center;
+}
+
+/* -------------------------------------- */
+/* HEADER STYLING */
+/* -------------------------------------- */
+
+header {
+	background: url(hero.png) no-repeat;
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
+}
+
+.hero-text-box {
+	position: absolute;
+	width: 1140px;
+	top: 25%;
+	left: 10%;
+}
+
+.buttons {
+	height: 100px;
+	display: inline-block;
+	padding-right: 10px;
+	padding-top: 20px;
+}
+
+/* -------------------------------------- */
+/* VIDEO STYLING */
+/* -------------------------------------- */
+iframe {
+	height: 405px;
+	width: 720px;
+	margin-top: 15%;
+}
+
+.in-the-same-boat {
+	margin-top: 18%;
+	padding-left: 40%
+}
+
+.video-text {
+	font-size: 140%;
+	text-align: left;
+	margin-top: 30px;
+	padding-left: 40%;
+	padding-right: 10px;
+}
+
+/* -------------------------------------- */
+/* FOOTER STYLING */
+/* -------------------------------------- */
+
+.footer-text {
+	margin-top: 10%;
+	margin-bottom: 3%;
+	font-size: 200%;
+	font-weight: bold;
+}
+
+.footer-buttons {
+	height: 100px;
+	display: inline-block;
+	padding-right: 10px;
+	padding-top: 20px;
+}
+
+.footer-nav {
+	color: #fff;
+	font-size: 130%;
+	text-decoration: none;
+	padding-right: 20px;
+	padding-top: 20px;
+}
+
+.footer-nav:hover {
+	color: #0097BB;
+}
+
+.social-icons {
+	padding: 20px;
+}
+
+.fab {
+	padding-right: 10px;
+	color: #fff;
+}
+.fab:hover {
+	color: #0097BB;
+}
+
+.copyright {
+	font-size: 130%;
+	padding-bottom: 50px;
+}
