@@ -189,7 +189,8 @@ header {
 }
 h1 {
 	margin: 0 0;
-	font-size: 220%;
+	font-size: 160%;
+	color: black;
 }
 .hero-text-box {
 	position: absolute;
