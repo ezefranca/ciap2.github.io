@@ -1,109 +1,1020 @@
-
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CIAP2 - Classificação Internacional de Atenção Primária</title>
+    <meta name="description" content="Acesso rápido aos códigos CIAP-2. Busca inteligente, uso offline, privacidade respeitada.">
+    <meta name="keywords" content="CIAP2, CIAP-2, Atenção Primária, Saúde, Medicina, Classificação">
+    <meta name="author" content="CIAP2">
 
-  <!-- SITE TITTLE -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CIAP2</title>
-  
-  <!-- PLUGINS CSS STYLE -->
-  <!-- Bootstrap -->
-  <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Themefisher Font -->  
-  <link href="plugins/themefisher-font/style.css" rel="stylesheet">
-  <!-- Slick Carousel -->
-  <link href="plugins/slick/slick.css" rel="stylesheet">
-  <!-- Slick Carousel Theme -->
-  <link href="plugins/slick/slick-theme.css" rel="stylesheet">
-  
-  <!-- CUSTOM CSS -->
-  <link href="css/style.css" rel="stylesheet">
+    <!-- Open Graph -->
+    <meta property="og:title" content="CIAP2 - Classificação Internacional de Atenção Primária">
+    <meta property="og:description" content="Acesso rápido e intuitivo aos códigos CIAP-2. Busca inteligente, uso offline, privacidade respeitada.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ciap2.app">
 
-  <!-- FAVICON -->
-  <link href="images/favicon.png" rel="shortcut icon">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="canonical" href="https://ciap2.app">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --text-tertiary: #6e6e73;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --accent-blue: #0071e3;
+            --accent-blue-hover: #0077ed;
+            --gradient-start: #fbfbfd;
+            --gradient-end: #f5f5f7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-size: 21px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 24px 80px;
+            background: linear-gradient(180deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-eyebrow {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-title {
+            font-size: clamp(40px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+            font-size: 21px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: rgba(0, 113, 227, 0.08);
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--accent-blue);
+        }
+
+        .badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .stat {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-icon {
+            width: 28px;
+            height: 28px;
+            color: var(--accent-blue);
+            margin-bottom: 8px;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .hero-cta .store-badge img {
+            height: 44px;
+            width: auto;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            background: var(--accent-blue);
+            color: white;
+            font-size: 17px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 980px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-blue-hover);
+            transform: scale(1.02);
+        }
+
+        .btn-primary svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 700px;
+            filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.12));
+        }
+
+        .hero-devices {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: -40px;
+            position: relative;
+        }
+
+        .hero-devices .device-iphone {
+            max-height: 600px;
+            z-index: 2;
+            transform: translateX(20px);
+        }
+
+        .hero-devices .device-android {
+            max-height: 520px;
+            z-index: 1;
+            transform: translateX(-20px);
+            opacity: 0.95;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 120px 24px;
+            background: var(--bg-primary);
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-eyebrow {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 19px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: var(--bg-secondary);
+            border-radius: 24px;
+            padding: 40px 32px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon svg {
+            width: 40px;
+            height: 40px;
+            color: var(--accent-blue);
+        }
+
+        .feature-title {
+            font-size: 21px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .feature-desc {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Privacy Banner */
+        .privacy-banner {
+            padding: 80px 24px;
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+        }
+
+        .privacy-banner h2 {
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .privacy-banner p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .privacy-features {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .privacy-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .privacy-feature svg {
+            width: 24px;
+            height: 24px;
+            color: #34c759;
+        }
+
+        .privacy-feature span {
+            font-size: 15px;
+            font-weight: 500;
+            color: white;
+        }
+
+        /* Recognition Section */
+        .recognition {
+            padding: 120px 24px;
+            background: var(--bg-secondary);
+        }
+
+        .recognition-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .recognition-text h2 {
+            font-size: clamp(32px, 4vw, 44px);
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+        }
+
+        .recognition-text p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .publication-list {
+            list-style: none;
+        }
+
+        .publication-item {
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .publication-item:first-child {
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .publication-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .publication-venue {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .recognition-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .stat-card {
+            background: var(--bg-primary);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .stat-card-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .stat-card-label {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+
+        .rating-stars svg {
+            width: 24px;
+            height: 24px;
+            fill: #ffc107;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 120px 24px;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            font-size: 19px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .store-badges {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .store-badge {
+            transition: transform 0.2s ease;
+        }
+
+        .store-badge:hover {
+            transform: scale(1.05);
+        }
+
+        .store-badge img {
+            height: 54px;
+            width: auto;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 24px;
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            max-width: 400px;
+            line-height: 1.6;
+        }
+
+        .footer-authorization {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            max-width: 350px;
+            line-height: 1.5;
+            text-align: right;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+                text-align: center;
+            }
+
+            .hero-text {
+                order: 1;
+            }
+
+            .hero-image {
+                order: 0;
+            }
+
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-badges {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .recognition-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .recognition-visual {
+                order: -1;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 20px 60px;
+                min-height: auto;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 24px;
+                align-items: center;
+            }
+
+            .stat {
+                text-align: center;
+                align-items: center;
+            }
+
+            .features, .recognition, .cta {
+                padding: 80px 20px;
+            }
+
+            .privacy-banner {
+                padding: 60px 20px;
+            }
+
+            .privacy-features {
+                gap: 24px;
+                flex-direction: column;
+            }
+
+            .footer-main {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-authorization {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-image img {
+                max-height: 450px;
+            }
+
+            .hero-devices .device-iphone {
+                max-height: 380px;
+                transform: translateX(15px);
+            }
+
+            .hero-devices .device-android {
+                max-height: 320px;
+                transform: translateX(-15px);
+            }
+
+            .hero-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .store-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">CIAP2</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="artigos.html">Artigos</a></li>
+                <li><a href="privacidade.html">Privacidade</a></li>
+                <li><a href="suporte.html">Suporte</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<body class="body-wrapper">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">CIAP-2</h1>
+                <p class="hero-subtitle">A Classificação Internacional de Atenção Primária ao seu alcance. Busca rápida, uso offline, privacidade respeitada.</p>
 
+                <div class="hero-cta">
+                    <a href="https://apps.apple.com/app/apple-store/id1450836069?pt=95625862&ct=site&mt=8" class="store-badge">
+                        <img src="images/app-badge/app-store.png" alt="Baixar na App Store">
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.ciap2&hl=pt_BR" class="store-badge">
+                        <img src="images/app-badge/google-play.png" alt="Baixar no Google Play">
+                    </a>
+                </div>
+            </div>
 
-<nav class="navbar main-nav fixed-top navbar-expand-lg">
-  <div class="container">
-      <a class="navbar-brand" href="homepage.html"><img src="images/logo.png" alt="logo"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="tf-ion-android-menu"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link " href="/index.html">Início</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="./privacidade.html">Privacidade</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="./artigos.html">Artigos</a>
-        </li>
-      </ul>
-      </div>
-  </div>
-</nav>
-<!--=====================================
-=            Homepage Banner            =
-======================================-->
+            <div class="hero-image">
+                <img src="images/phones/iphone-banner.png" alt="CIAP2 App">
+            </div>
+        </div>
+    </section>
 
-<section class="banner bg-1" id="home">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8 align-self-center">
-				<!-- Contents -->
-				<div class="content-block">
-					<div class="app-badge"><a href="/"><img class="app-badge" src="/images/app-badge/icon.png"></a></div>
-					<h1>Aplicativo CIAP2</h1>
-					<p>O aplicativo CIAP 2 é destinado a equipes de Atenção Primária: médicos, psicólogos, enfermeiros, assistentes sociais, entre outros, tendo como objetivo facilitar a busca dos procedimentos e códigos relacionados a sintomas, queixas e procedimentos na atenção primária à saúde.</p>
-					<!-- App Badge -->
-					<div class="app-badged">
-						<div><a class="app-badge" href="https://itunes.apple.com/app/apple-store/id1450836069?pt=95625862&amp;ct=site&amp;mt=8"><img class="app-badge" src="/images/app-badge/app-store.png"></a><a class="download" href="https://play.google.com/store/apps/details?id=com.ciap2&amp;hl=pt_BR"><img class="app-badge" src="/images/app-badge/google-play.png"></a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<!-- App Image -->
-				<div class="image-block">
-					<img class="img-fluid" src="images/phones/iphone-banner.png" alt="iphone-banner">
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <p class="section-eyebrow">Recursos</p>
+                <h2 class="section-title">Tudo que você precisa.<br>Na palma da mão.</h2>
+                <p class="section-subtitle">Desenvolvido com foco na experiência do usuário e nas necessidades reais dos profissionais de saúde.</p>
+            </div>
 
-<!--====  End of Homepage Banner  ====-->
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Busca Inteligente</h3>
+                    <p class="feature-desc">Encontre códigos por termo, categoria ou descrição. Resultados instantâneos.</p>
+                </div>
 
-<!--============================
-=            Footer            =
-=============================-->
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6h16.5M3.75 12h16.5m-16.5 6h7.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">17 Categorias</h3>
+                    <p class="feature-desc">Navegue por todas as categorias do CIAP-2 com hierarquia visual clara.</p>
+                </div>
 
-<footer class="footer-main">
-</footer>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">100% Offline</h3>
+                    <p class="feature-desc">Funciona sem internet. Consulte em qualquer lugar.</p>
+                </div>
 
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Favoritos</h3>
+                    <p class="feature-desc">Salve os códigos mais utilizados. Sincroniza via iCloud no iOS.</p>
+                </div>
 
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Privacidade</h3>
+                    <p class="feature-desc">Sem anúncios, sem rastreadores, sem coleta de dados.</p>
+                </div>
 
-  <!-- JAVASCRIPTS -->
-  
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI14J_PNWVd-m0gnUBkjmhoQyNyd7nllA" async defer></script>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">iOS e Android</h3>
+                    <p class="feature-desc">Disponível nas duas plataformas com a mesma experiência.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script src="plugins/jquery/jquery.js"></script>
-  <script src="plugins/popper/popper.min.js"></script>
-  <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-  <script src="plugins/waypoints/jquery.waypoints.min.js"></script>
-  <script src="plugins/slick/slick.min.js"></script>
-  <script src="plugins/smoothscroll/SmoothScroll.min.js"></script>
-  <script src="js/custom.js"></script>
-  
+    <!-- Privacy Banner -->
+    <section class="privacy-banner fade-in">
+        <div class="section-container">
+            <h2>Privacidade em primeiro lugar.</h2>
+            <p>Acreditamos que um aplicativo de saúde deve respeitar completamente a privacidade dos profissionais que o utilizam.</p>
+            <div class="privacy-features">
+                <div class="privacy-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    <span>Sem anúncios</span>
+                </div>
+                <div class="privacy-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    <span>Sem rastreadores</span>
+                </div>
+                <div class="privacy-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    <span>Sem coleta de dados pessoais</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recognition Section -->
+    <section class="recognition">
+        <div class="section-container">
+            <div class="recognition-content">
+                <div class="recognition-text fade-in">
+                    <h2>Reconhecido pela comunidade científica.</h2>
+                    <p>O CIAP2 é resultado de pesquisa acadêmica e foi apresentado em congressos nacionais, consolidando-se como ferramenta de referência na Atenção Primária à Saúde brasileira.</p>
+
+                    <ul class="publication-list">
+                        <li class="publication-item">
+                            <h4 class="publication-title">Desenvolvimento de um aplicativo para consulta ao CIAP-2</h4>
+                            <p class="publication-venue">15º Congresso Brasileiro de Medicina de Família e Comunidade</p>
+                        </li>
+                        <li class="publication-item">
+                            <h4 class="publication-title">Consulta ao Sistema de Classificação Internacional de Atenção Primária</h4>
+                            <p class="publication-venue">9º Congresso Brasileiro de Telemedicina e Telessaúde</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="recognition-visual fade-in">
+                    <div class="stat-card">
+                        <div class="rating-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <div class="stat-card-number">4.8</div>
+                        <div class="stat-card-label">Avaliação na App Store</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-card-number">50.000+</div>
+                        <div class="stat-card-label">Profissionais de saúde utilizam o CIAP2</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-card-number">2017</div>
+                        <div class="stat-card-label">Disponível desde</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="section-container fade-in">
+            <h2>Baixe agora.</h2>
+            <p>Tenha a Classificação Internacional de Atenção Primária na palma da sua mão.</p>
+
+            <div class="store-badges">
+                <a href="https://apps.apple.com/app/apple-store/id1450836069?pt=95625862&ct=site&mt=8" class="store-badge">
+                    <img src="images/app-badge/app-store.png" alt="Baixar na App Store">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.ciap2&hl=pt_BR" class="store-badge">
+                    <img src="images/app-badge/google-play.png" alt="Baixar no Google Play">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <a href="index.html" class="nav-logo">CIAP2</a>
+                <ul class="footer-links">
+                    <li><a href="artigos.html">Artigos</a></li>
+                    <li><a href="privacidade.html">Privacidade</a></li>
+                    <li><a href="suporte.html">Suporte</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    Copyright 2017-2026 CIAP2. Todos os direitos reservados.<br>
+                    Desenvolvido no Brasil com carinho para profissionais de saúde.
+                </p>
+                <p class="footer-authorization">
+                    A classificação CIAP-2 é protegida por direitos autorais. Este aplicativo possui autorização da SBMFC (Sociedade Brasileira de Medicina de Família e Comunidade) para uso da classificação.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
-
 </html>
-

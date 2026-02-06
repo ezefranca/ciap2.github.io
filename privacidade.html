@@ -1,84 +1,602 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacidade</title>
-      <!-- SITE TITTLE -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- PLUGINS CSS STYLE -->
-  <!-- Bootstrap -->
-  <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Themefisher Font -->  
-  <link href="plugins/themefisher-font/style.css" rel="stylesheet">
-  <!-- Slick Carousel -->
-  <link href="plugins/slick/slick.css" rel="stylesheet">
-  <!-- Slick Carousel Theme -->
-  <link href="plugins/slick/slick-theme.css" rel="stylesheet">
-  
-  <!-- CUSTOM CSS -->
-  <link href="css/style.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Privacidade - CIAP2</title>
+    <meta name="description" content="Política de privacidade do aplicativo CIAP2. Sem anúncios, sem rastreadores, sem coleta de dados pessoais.">
 
-  <!-- FAVICON -->
-  <link href="images/favicon.png" rel="shortcut icon">
+    <link rel="icon" href="favicon.ico">
+    <link rel="canonical" href="https://ciap2.app/privacidade.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --text-tertiary: #6e6e73;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --accent-blue: #0071e3;
+            --accent-green: #34c759;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            line-height: 1.5;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-size: 21px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-primary);
+        }
+
+        .page-header {
+            padding: 140px 24px 80px;
+            background: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: clamp(36px, 5vw, 48px);
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .page-header p {
+            font-size: 19px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Privacy Summary Banner */
+        .privacy-summary {
+            background: var(--text-primary);
+            color: white;
+            padding: 60px 24px;
+        }
+
+        .privacy-summary-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .privacy-summary h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .privacy-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .privacy-item {
+            text-align: center;
+        }
+
+        .privacy-item-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 16px;
+            background: rgba(52, 199, 89, 0.2);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .privacy-item-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--accent-green);
+        }
+
+        .privacy-item h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .privacy-item p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+        }
+
+        .content {
+            padding: 80px 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .policy-section {
+            margin-bottom: 56px;
+        }
+
+        .policy-section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .policy-section h2 {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .policy-section h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+
+        .policy-section p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .policy-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-section ul {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+
+        .policy-section li {
+            font-size: 17px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        .policy-section strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .highlight-box.blue {
+            border-left-color: var(--accent-blue);
+        }
+
+        .highlight-box p {
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        .highlight-box h4 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .data-table {
+            width: 100%;
+            margin: 24px 0;
+            border-collapse: collapse;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .data-table th {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .data-table td {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge-yes {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: rgba(52, 199, 89, 0.1);
+            color: #1d8348;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 100px;
+        }
+
+        .badge-no {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 100px;
+        }
+
+        .last-updated {
+            font-size: 14px;
+            color: var(--text-tertiary);
+            padding-top: 40px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            margin-top: 56px;
+            text-align: center;
+        }
+
+        .footer {
+            padding: 40px 24px;
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            line-height: 1.6;
+        }
+
+        .footer-authorization {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            max-width: 350px;
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .page-header { padding: 120px 20px 60px; }
+            .privacy-summary { padding: 48px 20px; }
+            .privacy-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+            .content { padding: 60px 20px; }
+            .data-table { font-size: 14px; }
+            .data-table th, .data-table td { padding: 12px 8px; }
+            .footer-main { flex-direction: column; text-align: center; }
+            .footer-links { flex-wrap: wrap; justify-content: center; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .footer-authorization { text-align: center; max-width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            .privacy-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
-<body class="body-wrapper">
-
-
-    <nav class="navbar main-nav fixed-top navbar-expand-lg">
-      <div class="container">
-          <a class="navbar-brand" href="homepage.html"><img src="images/logo.png" alt="logo"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="tf-ion-android-menu"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link " href="/index.html">Início</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="/privacidade.html">Privacidade</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="/artigos.html">Artigos</a>
-            </li>
-          </ul>
-          </div>
-      </div>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">CIAP2</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="artigos.html">Artigos</a></li>
+                <li><a href="privacidade.html" class="active">Privacidade</a></li>
+                <li><a href="suporte.html">Suporte</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <section class="banner bg-1" id="home">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 align-self-center">
-                    <!-- Contents -->
-                    <div class="content-block">
-                        <h1>CIAP 2</h1>
-                        <h2>Política de Privacidade</h2>
-                        <p>
-      
-                            Esta política se aplica a todas as informações coletadas ou enviadas no CIAP2 para iPhone, iPad e quaisquer outros dispositivos e plataformas.
-                        </p>
-                           <h2>Informações Coletadas</h2> 
-                           <p>CIAP2 usa sua conta Apple iCloud para armazenar os favoritos que você salva com o aplicativo, isso significa que apenas você tem acesso ao conteúdo você salva no aplicativo, a Apple não dá aos desenvolvedores acesso aos dados do usuário armazenado no iCloud. Se você optar por compartilhar seus favoritos em outros serviços, verifique as políticas de privacidade desses serviços. Coletamos informações anônimas e agregadas sobre o aplicativo para ajudar a melhorar o app, você pode escolha optar por sair da tela "Configurações" no aplicativo e desativando a análise.</p>
-                            
-                           <h2>Uso da informação</h2>
-                            <p>                            Usamos as informações que coletamos para operar e melhorar nosso aplicativo e suporte ao cliente. Não compartilhamos informações pessoais com terceiros partes, exceto na medida necessária para cumprir as exigências do CIAP2 funcionalidade. Podemos divulgar suas informações em resposta a intimações, ordens judiciais ou outros requisitos legais; exercitar nossos direitos legais ou em defesa contra reivindicações legais; para investigar, impedir ou tomar medidas relacionadas a atividades ilegais, suspeita de fraude ou abuso, violações de nossas políticas; ou para proteger nossos direitos e propriedade. 
-                                No futuro, poderemos vender, comprar, fundir ou formar parcerias com outras empresas. negócios. Nessas transações, as informações do usuário podem estar entre os ativos transferidos.
-                                </p>
+    <header class="page-header">
+        <h1>Privacidade</h1>
+        <p>O CIAP2 foi projetado com privacidade como princípio fundamental. Seus dados pertencem a você.</p>
+    </header>
 
-                            <h2>Sua permissão</h2>
-                            <p>
-                            Ao usar nosso aplicativo ou site, você concorda com nossa política de privacidade.
-                                </p>
+    <section class="privacy-summary">
+        <div class="privacy-summary-container">
+            <h2>Nosso compromisso com sua privacidade</h2>
+            <div class="privacy-grid">
+                <div class="privacy-item">
+                    <div class="privacy-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
+                        </svg>
                     </div>
+                    <h3>Sem anúncios</h3>
+                    <p>Nenhum anúncio. Nunca. O app é 100% gratuito sem monetização por publicidade.</p>
+                </div>
+                <div class="privacy-item">
+                    <div class="privacy-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>
+                        </svg>
+                    </div>
+                    <h3>Sem rastreadores</h3>
+                    <p>Não rastreamos sua atividade. Não coletamos dados de navegação ou uso.</p>
+                </div>
+                <div class="privacy-item">
+                    <div class="privacy-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                    </div>
+                    <h3>Sem dados pessoais</h3>
+                    <p>Não coletamos nome, email, localização ou qualquer dado que identifique você.</p>
+                </div>
+                <div class="privacy-item">
+                    <div class="privacy-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+                        </svg>
+                    </div>
+                    <h3>iCloud privado</h3>
+                    <p>Sincronização via CloudKit da Apple. Seus dados ficam na sua conta iCloud.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <main class="content">
+        <section class="policy-section">
+            <h2>Resumo da Política</h2>
+            <div class="highlight-box">
+                <h4>TL;DR - O essencial</h4>
+                <p>O CIAP2 não coleta, armazena ou compartilha dados pessoais. Não há anúncios, rastreadores ou analytics invasivos. Os únicos dados que existem são seus favoritos, que ficam salvos localmente no seu dispositivo e sincronizados via iCloud (sua conta Apple, sob seu controle).</p>
+            </div>
+        </section>
+
+        <section class="policy-section">
+            <h2>O que o CIAP2 coleta?</h2>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Tipo de dado</th>
+                        <th>Coletado?</th>
+                        <th>Detalhes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nome, email, telefone</td>
+                        <td><span class="badge-no">Não</span></td>
+                        <td>Nunca solicitamos dados de identificação</td>
+                    </tr>
+                    <tr>
+                        <td>Localização</td>
+                        <td><span class="badge-no">Não</span></td>
+                        <td>Não acessamos GPS ou localização</td>
+                    </tr>
+                    <tr>
+                        <td>Contatos, fotos, arquivos</td>
+                        <td><span class="badge-no">Não</span></td>
+                        <td>Nenhum acesso a dados do dispositivo</td>
+                    </tr>
+                    <tr>
+                        <td>Histórico de buscas</td>
+                        <td><span class="badge-no">Não</span></td>
+                        <td>Suas buscas ficam apenas no dispositivo</td>
+                    </tr>
+                    <tr>
+                        <td>Favoritos</td>
+                        <td><span class="badge-yes">Local</span></td>
+                        <td>Salvos no dispositivo e iCloud (sua conta)</td>
+                    </tr>
+                    <tr>
+                        <td>Sinais anônimos</td>
+                        <td><span class="badge-yes">Opcional</span></td>
+                        <td>Via TelemetryDeck (detalhes abaixo)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="policy-section">
+            <h2>Telemetria Anônima (TelemetryDeck)</h2>
+            <p>Utilizamos o <strong>TelemetryDeck</strong> para coletar sinais anônimos e agregados que nos ajudam a entender como o app é utilizado de forma geral. Isso nos permite melhorar o aplicativo sem comprometer sua privacidade.</p>
+
+            <div class="highlight-box blue">
+                <h4>O que o TelemetryDeck coleta</h4>
+                <p>Apenas sinais agregados como: qual versão do app é mais usada, qual versão do iOS é mais comum entre usuários, e quantas vezes uma funcionalidade é utilizada (de forma anônima). <strong>Nenhum dado pessoal, identificador único ou informação que permita identificar você é coletado ou transmitido.</strong></p>
+            </div>
+
+            <h3>Por que usamos TelemetryDeck?</h3>
+            <ul>
+                <li><strong>Privacidade por design:</strong> TelemetryDeck foi criado especificamente para ser compatível com privacidade</li>
+                <li><strong>Sem identificadores:</strong> Não usa IDFA, fingerprinting ou qualquer técnica de identificação</li>
+                <li><strong>Dados agregados:</strong> Só recebemos estatísticas gerais, nunca dados individuais</li>
+                <li><strong>Conformidade:</strong> Compatível com GDPR, LGPD e App Tracking Transparency</li>
+            </ul>
+        </section>
+
+        <section class="policy-section">
+            <h2>Sincronização via iCloud</h2>
+            <p>O CIAP2 utiliza <strong>CloudKit</strong>, a infraestrutura de sincronização da Apple, para manter seus favoritos sincronizados entre seus dispositivos.</p>
+
+            <h3>Como funciona</h3>
+            <ul>
+                <li>Seus favoritos são armazenados na <strong>sua conta iCloud pessoal</strong></li>
+                <li>Nós não temos acesso aos dados sincronizados - eles pertencem a você</li>
+                <li>A sincronização usa criptografia de ponta a ponta da Apple</li>
+                <li>Você pode desativar a sincronização nas configurações do dispositivo</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p>A Apple gerencia toda a infraestrutura de iCloud. Para saber mais sobre como a Apple protege seus dados, consulte a <a href="https://www.apple.com/br/privacy/" target="_blank" rel="noopener" style="color: var(--accent-blue);">Política de Privacidade da Apple</a>.</p>
+            </div>
+        </section>
+
+        <section class="policy-section">
+            <h2>Segurança</h2>
+            <p>A segurança dos seus dados é fundamental:</p>
+            <ul>
+                <li><strong>Dados locais:</strong> Informações no dispositivo são protegidas pelo sistema de segurança do iOS</li>
+                <li><strong>Transmissão:</strong> Toda comunicação usa HTTPS com criptografia TLS</li>
+                <li><strong>iCloud:</strong> Sincronização protegida pela infraestrutura de segurança da Apple</li>
+                <li><strong>Sem servidores próprios:</strong> Não mantemos servidores que armazenem seus dados</li>
+            </ul>
+        </section>
+
+        <section class="policy-section">
+            <h2>Seus Direitos</h2>
+            <p>De acordo com a LGPD (Lei Geral de Proteção de Dados) e outras legislações de privacidade, você tem direito a:</p>
+            <ul>
+                <li><strong>Acesso:</strong> Saber quais dados temos sobre você (resposta: nenhum dado pessoal)</li>
+                <li><strong>Portabilidade:</strong> Exportar seus favoritos (disponível no app)</li>
+                <li><strong>Exclusão:</strong> Deletar seus dados (desinstale o app ou desative iCloud)</li>
+                <li><strong>Informação:</strong> Saber como seus dados são tratados (esta política)</li>
+            </ul>
+            <p>Para exercer qualquer direito ou tirar dúvidas, entre em contato pelo email de suporte.</p>
+        </section>
+
+        <section class="policy-section">
+            <h2>Menores de Idade</h2>
+            <p>O CIAP2 é destinado a profissionais de saúde. Não coletamos intencionalmente dados de menores de 18 anos. Como não coletamos dados pessoais de nenhum usuário, esta política se aplica igualmente a todos.</p>
+        </section>
+
+        <section class="policy-section">
+            <h2>Alterações nesta Política</h2>
+            <p>Podemos atualizar esta política periodicamente. Alterações significativas serão comunicadas através do aplicativo. O uso continuado após alterações constitui aceitação da política atualizada.</p>
+            <p>Recomendamos revisar esta página periodicamente para se manter informado sobre nossas práticas de privacidade.</p>
+        </section>
+
+        <section class="policy-section">
+            <h2>Contato</h2>
+            <p>Dúvidas sobre privacidade? Entre em contato:</p>
+            <p><strong>Email:</strong> <a href="mailto:suporte@ciap2.app" style="color: var(--accent-blue);">suporte@ciap2.app</a></p>
+        </section>
+
+        <p class="last-updated">Última atualização: Janeiro de 2026</p>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <a href="index.html" class="nav-logo">CIAP2</a>
+                <ul class="footer-links">
+                    <li><a href="artigos.html">Artigos</a></li>
+                    <li><a href="privacidade.html">Privacidade</a></li>
+                    <li><a href="suporte.html">Suporte</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">Copyright 2017-2026 CIAP2. Todos os direitos reservados.</p>
+                <p class="footer-authorization">Aplicativo autorizado pela SBMFC para uso da classificação CIAP-2.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

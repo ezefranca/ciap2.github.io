@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Artigos - CIAP2</title>
-    <meta name="description" content="Publicações científicas sobre o aplicativo CIAP2 - apresentado em congressos nacionais de medicina e telemedicina.">
+    <title>Suporte - CIAP2</title>
+    <meta name="description" content="Central de suporte do aplicativo CIAP2. Perguntas frequentes e contato.">
 
     <link rel="icon" href="favicon.ico">
-    <link rel="canonical" href="https://ciap2.app/artigos.html">
+    <link rel="canonical" href="https://ciap2.app/suporte.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -21,6 +21,7 @@
             --bg-secondary: #f5f5f7;
             --accent-blue: #0071e3;
             --accent-blue-hover: #0077ed;
+            --accent-green: #34c759;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -112,100 +113,121 @@
             margin: 0 auto;
         }
 
-        .intro-text {
+        .contact-card {
+            background: linear-gradient(135deg, var(--accent-blue), #5856d6);
+            border-radius: 28px;
+            padding: 56px 48px;
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
+            color: white;
         }
 
-        .intro-text p {
-            font-size: 17px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .article-card {
-            background: var(--bg-secondary);
-            border-radius: 24px;
-            padding: 48px;
-            margin-bottom: 32px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .article-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
-        }
-
-        .article-meta {
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
             display: flex;
-            gap: 12px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
         }
 
-        .article-badge {
-            display: inline-block;
-            font-size: 12px;
+        .contact-icon svg {
+            width: 40px;
+            height: 40px;
+            color: white;
+        }
+
+        .contact-title {
+            font-size: 28px;
             font-weight: 600;
-            color: var(--accent-blue);
-            background: rgba(0, 113, 227, 0.1);
-            padding: 6px 14px;
-            border-radius: 100px;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
+            margin-bottom: 12px;
         }
 
-        .article-year {
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--text-secondary);
-            background: rgba(0, 0, 0, 0.05);
-            padding: 6px 14px;
-            border-radius: 100px;
-        }
-
-        .article-title {
-            font-size: 26px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-            line-height: 1.3;
-            letter-spacing: -0.02em;
-        }
-
-        .article-venue {
+        .contact-desc {
             font-size: 17px;
-            color: var(--text-secondary);
-            margin-bottom: 24px;
-            line-height: 1.5;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .article-venue strong {
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        .article-link {
+        .contact-email {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-size: 17px;
-            font-weight: 500;
+            padding: 16px 32px;
+            background: white;
             color: var(--accent-blue);
+            font-size: 17px;
+            font-weight: 600;
             text-decoration: none;
-            transition: gap 0.2s ease;
+            border-radius: 980px;
+            transition: all 0.2s ease;
         }
 
-        .article-link:hover {
+        .contact-email:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-email svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .faq-section h2 {
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 40px;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+
+        .faq-item {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 28px 32px;
+            margin-bottom: 16px;
+            transition: transform 0.2s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateX(4px);
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
             gap: 12px;
         }
 
-        .article-link svg {
-            width: 20px;
-            height: 20px;
+        .faq-question::before {
+            content: "Q";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 28px;
+            height: 28px;
+            background: var(--accent-blue);
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 8px;
+        }
+
+        .faq-answer {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            padding-left: 40px;
         }
 
         .footer {
@@ -271,8 +293,10 @@
             .nav-links { display: none; }
             .page-header { padding: 120px 20px 60px; }
             .content { padding: 60px 20px; }
-            .article-card { padding: 32px 24px; }
-            .article-title { font-size: 22px; }
+            .contact-card { padding: 40px 24px; }
+            .faq-item { padding: 24px 20px; }
+            .faq-question { font-size: 16px; }
+            .faq-answer { padding-left: 0; margin-top: 8px; }
             .footer-main { flex-direction: column; text-align: center; }
             .footer-links { flex-wrap: wrap; justify-content: center; }
             .footer-bottom { flex-direction: column; text-align: center; }
@@ -286,58 +310,73 @@
             <a href="index.html" class="nav-logo">CIAP2</a>
             <ul class="nav-links">
                 <li><a href="index.html">Início</a></li>
-                <li><a href="artigos.html" class="active">Artigos</a></li>
+                <li><a href="artigos.html">Artigos</a></li>
                 <li><a href="privacidade.html">Privacidade</a></li>
-                <li><a href="suporte.html">Suporte</a></li>
+                <li><a href="suporte.html" class="active">Suporte</a></li>
             </ul>
         </div>
     </nav>
 
     <header class="page-header">
-        <h1>Publicações Científicas</h1>
-        <p>Trabalhos acadêmicos que fundamentam o desenvolvimento e validam a relevância do CIAP2 na comunidade médica.</p>
+        <h1>Suporte</h1>
+        <p>Estamos aqui para ajudar. Encontre respostas ou entre em contato conosco.</p>
     </header>
 
     <main class="content">
-        <div class="intro-text">
-            <p>O CIAP2 nasceu de um projeto de pesquisa acadêmica e foi reconhecido em congressos nacionais de referência nas áreas de Medicina de Família e Telemedicina, consolidando-se como ferramenta útil para profissionais da Atenção Primária à Saúde.</p>
+        <div class="contact-card">
+            <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+            </div>
+            <h2 class="contact-title">Precisa de ajuda?</h2>
+            <p class="contact-desc">Dúvidas, sugestões ou problemas técnicos? Responderemos o mais rápido possível.</p>
+            <a href="mailto:suporte@ciap2.app" class="contact-email">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                Enviar e-mail
+            </a>
         </div>
 
-        <article class="article-card">
-            <div class="article-meta">
-                <span class="article-badge">Artigo Publicado</span>
-                <span class="article-year">2019</span>
-            </div>
-            <h2 class="article-title">Desenvolvimento de um aplicativo para consulta ao CIAP-2</h2>
-            <p class="article-venue">
-                <strong>15º Congresso Brasileiro de Medicina de Família e Comunidade</strong><br>
-                Organizado pela Sociedade Brasileira de Medicina de Família e Comunidade (SBMFC)
-            </p>
-            <a href="https://proceedings.science/cbmfc-2019/papers/desenvolvimento-de-um-aplicativo-para-consulta-ao-ciap-2" class="article-link" target="_blank" rel="noopener">
-                Acessar publicação
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
-            </a>
-        </article>
+        <section class="faq-section">
+            <h2>Perguntas Frequentes</h2>
 
-        <article class="article-card">
-            <div class="article-meta">
-                <span class="article-badge">Artigo Publicado</span>
-                <span class="article-year">2019</span>
+            <div class="faq-item">
+                <h3 class="faq-question">O aplicativo funciona sem internet?</h3>
+                <p class="faq-answer">Sim! O CIAP2 funciona 100% offline. Todos os códigos e dados estão armazenados localmente no seu dispositivo, permitindo consultas em qualquer lugar, mesmo sem conexão com a internet.</p>
             </div>
-            <h2 class="article-title">Consulta ao Sistema de Classificação Internacional de Atenção Primária - Segunda Edição</h2>
-            <p class="article-venue">
-                <strong>9º Congresso Brasileiro de Telemedicina e Telessaúde</strong><br>
-                Contribuição para o avanço da telemedicina e saúde digital no Brasil
-            </p>
-            <a href="https://www.even3.com.br/anais/cbtms9/144910" class="article-link" target="_blank" rel="noopener">
-                Acessar publicação
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
-            </a>
-        </article>
+
+            <div class="faq-item">
+                <h3 class="faq-question">O aplicativo é gratuito?</h3>
+                <p class="faq-answer">Sim, o CIAP2 é completamente gratuito e sem anúncios. Não há compras dentro do app, assinaturas ou qualquer tipo de monetização. Nosso objetivo é facilitar o acesso à classificação para todos os profissionais de saúde.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Como funciona a sincronização entre dispositivos?</h3>
+                <p class="faq-answer">O CIAP2 usa o iCloud (CloudKit) para sincronizar seus favoritos automaticamente entre todos os seus dispositivos Apple. Basta estar logado com a mesma conta iCloud e ter a sincronização ativada nas configurações.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">O aplicativo está disponível para Android?</h3>
+                <p class="faq-answer">Sim! O CIAP2 está disponível tanto na App Store (iOS) quanto na Google Play Store (Android). A versão Android possui as mesmas funcionalidades principais.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Como posso sugerir melhorias?</h3>
+                <p class="faq-answer">Adoramos ouvir sugestões da comunidade! Envie um e-mail para nosso suporte descrevendo sua ideia ou necessidade. Todas as sugestões são avaliadas e consideradas para futuras atualizações.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Os dados do aplicativo são seguros?</h3>
+                <p class="faq-answer">Sim. O CIAP2 não coleta dados pessoais. Suas informações ficam apenas no seu dispositivo e, se ativada a sincronização, na sua conta iCloud pessoal (sob controle da Apple). Nós não temos acesso a nenhum dado seu.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Como exportar meus favoritos?</h3>
+                <p class="faq-answer">Você pode exportar seus favoritos diretamente pelo aplicativo. Acesse a seção de favoritos e utilize a opção de compartilhamento para exportar a lista em formato de texto.</p>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
