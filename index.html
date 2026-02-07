@@ -929,15 +929,15 @@
 
                 <div class="recognition-visual fade-in">
                     <div class="stat-card">
-                        <div class="rating-stars">
+                        <div class="rating-stars" id="app-rating-stars">
                             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                         </div>
-                        <div class="stat-card-number">4.8</div>
-                        <div class="stat-card-label">Avaliação na App Store</div>
+                        <div class="stat-card-number" id="app-rating">4.8</div>
+                        <div class="stat-card-label" id="app-rating-label">Avaliação na App Store</div>
                     </div>
 
                     <div class="stat-card">
@@ -1014,6 +1014,46 @@
             document.querySelectorAll('.fade-in').forEach(el => {
                 observer.observe(el);
             });
+
+            // Fetch App Store rating and reviews dynamically
+            fetch('https://itunes.apple.com/lookup?id=1450836069&country=br')
+                .then(function(response) { return response.json(); })
+                .then(function(data) {
+                    if (data.resultCount > 0) {
+                        var app = data.results[0];
+                        var rating = Math.round(app.averageUserRating * 10) / 10;
+                        var reviews = app.userRatingCount;
+
+                        document.getElementById('app-rating').textContent = rating.toFixed(1).replace('.', ',');
+                        document.getElementById('app-rating-label').textContent = reviews + ' avaliações na App Store';
+
+                        // Update stars to reflect actual rating
+                        var starsContainer = document.getElementById('app-rating-stars');
+                        var fullStars = Math.floor(rating);
+                        var partial = rating - fullStars;
+                        var starPath = 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z';
+                        var html = '';
+                        for (var i = 0; i < 5; i++) {
+                            if (i < fullStars) {
+                                html += '<svg viewBox="0 0 24 24"><path d="' + starPath + '"/></svg>';
+                            } else if (i === fullStars && partial > 0) {
+                                var pct = Math.round(partial * 100);
+                                html += '<svg viewBox="0 0 24 24">' +
+                                    '<defs><linearGradient id="partial-star">' +
+                                    '<stop offset="' + pct + '%" stop-color="#ffc107"/>' +
+                                    '<stop offset="' + pct + '%" stop-color="#e0e0e0"/>' +
+                                    '</linearGradient></defs>' +
+                                    '<path d="' + starPath + '" fill="url(#partial-star)"/></svg>';
+                            } else {
+                                html += '<svg viewBox="0 0 24 24"><path d="' + starPath + '" fill="#e0e0e0"/></svg>';
+                            }
+                        }
+                        starsContainer.innerHTML = html;
+                    }
+                })
+                .catch(function() {
+                    // Keep fallback values on error
+                });
         });
     </script>
 </body>
