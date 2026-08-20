@@ -1,9 +1,9 @@
-const CACHE_NAME = "ciap2-web-v4";
+const CACHE_NAME = "ciap2-web-v5";
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./styles.css?v=4",
-  "./app.js?v=4",
+  "./styles.css?v=5",
+  "./app.js?v=5",
   "./manifest.webmanifest",
   "./icons/appicon.png",
   "./icons/chapters/procedimentos.png",
