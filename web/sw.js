@@ -1,4 +1,4 @@
-const CACHE_NAME = "ciap2-web-v2";
+const CACHE_NAME = "ciap2-web-v3";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -6,6 +6,31 @@ const APP_SHELL = [
   "./app.js",
   "./manifest.webmanifest",
   "./icons/appicon.png",
+  "./icons/chapters/procedimentos.png",
+  "./icons/chapters/geral.png",
+  "./icons/chapters/sangue.png",
+  "./icons/chapters/digestivo.png",
+  "./icons/chapters/olho.png",
+  "./icons/chapters/ouvido.png",
+  "./icons/chapters/circulatorio.png",
+  "./icons/chapters/musculo.png",
+  "./icons/chapters/neurologico.png",
+  "./icons/chapters/psicologico.png",
+  "./icons/chapters/respiratorio.png",
+  "./icons/chapters/pele.png",
+  "./icons/chapters/endocrino.png",
+  "./icons/chapters/urinario.png",
+  "./icons/chapters/gravidez.png",
+  "./icons/chapters/feminino.png",
+  "./icons/chapters/masculino.png",
+  "./icons/chapters/sociais.png",
+  "./icons/classifications/procedimentos.png",
+  "./icons/classifications/sintomas.png",
+  "./icons/classifications/infeccoes.png",
+  "./icons/classifications/neoplasias.png",
+  "./icons/classifications/traumatismos.png",
+  "./icons/classifications/anomalias.png",
+  "./icons/classifications/outros.png",
   "./og.png",
   "./data/ciap2.json"
 ];

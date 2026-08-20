@@ -11,15 +11,45 @@ const VIEW_COPY = {
   favorites: ["Sua coleção", "Favoritos", "Acesso rápido aos códigos guardados neste navegador."]
 };
 
-const CHAPTER_COLORS = ["#4c7bd9", "#627486", "#d2485b", "#e07a32", "#7b61c9", "#8d6b50", "#e24b5f", "#d74f67", "#d18a2d", "#8a5bd2", "#48a6b5", "#de7d4f", "#3c8f88", "#4d9f68", "#e08354", "#cc658a", "#4c78bf", "#5a8d68"];
 const CLASS_COLORS = {
-  "PROCEDIMENTOS": "#4c7bd9",
-  "SINAIS/SINTOMAS": "#e17c36",
-  "INFECÇÕES": "#d6535f",
-  "NEOPLASIAS": "#8a5bd2",
-  "TRAUMATISMOS": "#d79a31",
-  "ANOMALIAS CONGÊNITAS": "#4da17b",
-  "OUTROS DIAGNÓSTICOS": "#668095"
+  "PROCEDIMENTOS": "#c1c0bc",
+  "SINAIS/SINTOMAS": "#c0deaf",
+  "INFECÇÕES": "#ffff8c",
+  "NEOPLASIAS": "#bcd8da",
+  "TRAUMATISMOS": "#ea9596",
+  "ANOMALIAS CONGÊNITAS": "#a19dc0",
+  "OUTROS DIAGNÓSTICOS": "#c497b8"
+};
+
+const CLASS_ICONS = {
+  "PROCEDIMENTOS": "icons/classifications/procedimentos.png",
+  "SINAIS/SINTOMAS": "icons/classifications/sintomas.png",
+  "INFECÇÕES": "icons/classifications/infeccoes.png",
+  "NEOPLASIAS": "icons/classifications/neoplasias.png",
+  "TRAUMATISMOS": "icons/classifications/traumatismos.png",
+  "ANOMALIAS CONGÊNITAS": "icons/classifications/anomalias.png",
+  "OUTROS DIAGNÓSTICOS": "icons/classifications/outros.png"
+};
+
+const CHAPTER_ICONS = {
+  "-": "icons/chapters/procedimentos.png",
+  A: "icons/chapters/geral.png",
+  B: "icons/chapters/sangue.png",
+  D: "icons/chapters/digestivo.png",
+  F: "icons/chapters/olho.png",
+  H: "icons/chapters/ouvido.png",
+  K: "icons/chapters/circulatorio.png",
+  L: "icons/chapters/musculo.png",
+  N: "icons/chapters/neurologico.png",
+  P: "icons/chapters/psicologico.png",
+  R: "icons/chapters/respiratorio.png",
+  S: "icons/chapters/pele.png",
+  T: "icons/chapters/endocrino.png",
+  U: "icons/chapters/urinario.png",
+  W: "icons/chapters/gravidez.png",
+  X: "icons/chapters/feminino.png",
+  Y: "icons/chapters/masculino.png",
+  Z: "icons/chapters/sociais.png"
 };
 
 const CLASS_LABELS = {
@@ -57,7 +87,7 @@ const state = {
   codes: [],
   codeMap: new Map(),
   chapters: [],
-  view: "search",
+  view: "classifications",
   browse: null,
   favorites: new Set(readStorage(STORAGE.favorites, [])),
   history: readStorage(STORAGE.history, []),
@@ -112,14 +142,15 @@ function prepareCode(code) {
 
 function codeRow(code) {
   const favorite = state.favorites.has(code.code);
+  const classColor = CLASS_COLORS[code.classification] || CLASS_COLORS["OUTROS DIAGNÓSTICOS"];
   return `
-    <article class="codeRow" data-code="${escapeHTML(code.code)}" tabindex="0" role="button" aria-label="${escapeHTML(code.code)}, ${escapeHTML(code.title)}">
+    <article class="codeRow" data-code="${escapeHTML(code.code)}" tabindex="0" role="button" aria-label="${escapeHTML(code.code)}, ${escapeHTML(code.title)}" style="--classification-color:${classColor}">
       <span class="codeBadge">${escapeHTML(code.code)}</span>
       <span class="codeInfo">
         <strong>${escapeHTML(code.title)}</strong>
         <small>${escapeHTML(code.chapter)} · ${escapeHTML(CLASS_LABELS[code.classification] || code.classification)}</small>
       </span>
-      <button class="rowFavorite${favorite ? " isFavorite" : ""}" data-favorite="${escapeHTML(code.code)}" type="button" aria-label="${favorite ? "Remover dos" : "Adicionar aos"} favoritos">${favorite ? "★" : "☆"}</button>
+      <button class="rowFavorite${favorite ? " isFavorite" : ""}" data-favorite="${escapeHTML(code.code)}" type="button" aria-label="${favorite ? "Remover dos" : "Adicionar aos"} favoritos"></button>
     </article>`;
 }
 
@@ -136,10 +167,10 @@ function dashboard() {
     <section>
       <div class="sectionHeader"><h2>Atalhos de busca</h2><p>726 códigos disponíveis</p></div>
       <div class="quickGrid">
-        <button class="quickCard" data-query="diabetes" type="button"><span aria-hidden="true">D</span><strong>Diabetes</strong></button>
-        <button class="quickCard" data-query="hipertensão" type="button"><span aria-hidden="true">H</span><strong>Hipertensão</strong></button>
-        <button class="quickCard" data-query="tosse" type="button"><span aria-hidden="true">T</span><strong>Tosse</strong></button>
-        <button class="quickCard" data-query="ansiedade" type="button"><span aria-hidden="true">A</span><strong>Ansiedade</strong></button>
+        <button class="quickCard" data-query="diabetes" type="button"><img src="icons/chapters/endocrino.png" alt=""><strong>Diabetes</strong></button>
+        <button class="quickCard" data-query="hipertensão" type="button"><img src="icons/chapters/circulatorio.png" alt=""><strong>Hipertensão</strong></button>
+        <button class="quickCard" data-query="tosse" type="button"><img src="icons/chapters/respiratorio.png" alt=""><strong>Tosse</strong></button>
+        <button class="quickCard" data-query="ansiedade" type="button"><img src="icons/chapters/psicologico.png" alt=""><strong>Ansiedade</strong></button>
       </div>
     </section>${recents}`;
 }
@@ -200,10 +231,11 @@ function renderChapters() {
   }
   const counts = new Map();
   state.codes.forEach((code) => counts.set(code.chapter, (counts.get(code.chapter) || 0) + 1));
-  els.content.innerHTML = `<div class="chapterGrid">${state.chapters.map((chapter, index) => `
-    <button class="chapterCard" data-browse-type="chapter" data-browse-value="${escapeHTML(chapter.name)}" type="button" style="--chapter-color:${CHAPTER_COLORS[index % CHAPTER_COLORS.length]}">
-      <span class="chapterInitial">${escapeHTML(chapter.code)}</span>
-      <span><strong>${escapeHTML(toTitleCase(chapter.name))}</strong><small>${counts.get(chapter.name) || 0} códigos</small></span>
+  els.content.innerHTML = `<div class="chapterGrid">${state.chapters.map((chapter) => `
+    <button class="chapterCard" data-browse-type="chapter" data-browse-value="${escapeHTML(chapter.name)}" type="button">
+      <img class="categoryIcon" src="${CHAPTER_ICONS[chapter.code]}" alt="">
+      <span class="categoryCopy"><strong>${escapeHTML(toTitleCase(chapter.name))}</strong><small>${counts.get(chapter.name) || 0} códigos</small></span>
+      <span class="chevron" aria-hidden="true"></span>
     </button>`).join("")}</div>`;
 }
 
@@ -217,9 +249,10 @@ function renderClassifications() {
     count: state.codes.filter((code) => code.classification === classification).length
   }));
   els.content.innerHTML = `<div class="classificationGrid">${groups.map(({ classification, count }) => `
-    <button class="classificationCard" data-browse-type="classification" data-browse-value="${escapeHTML(classification)}" type="button">
-      <span class="classificationMark" style="--class-color:${CLASS_COLORS[classification]}"></span>
-      <span><strong>${escapeHTML(CLASS_LABELS[classification])}</strong><small>${count} códigos</small></span>
+    <button class="classificationCard" data-browse-type="classification" data-browse-value="${escapeHTML(classification)}" type="button" style="--class-color:${CLASS_COLORS[classification]}">
+      <img class="categoryIcon" src="${CLASS_ICONS[classification]}" alt="">
+      <span class="categoryCopy"><strong>${escapeHTML(CLASS_LABELS[classification])}</strong><small>${count} códigos</small></span>
+      <span class="chevron" aria-hidden="true"></span>
     </button>`).join("")}</div>`;
 }
 
@@ -288,7 +321,6 @@ function updateFavoriteUI() {
   if (state.activeCode) {
     const favorite = state.favorites.has(state.activeCode.code);
     els.favoriteDetail.classList.toggle("isFavorite", favorite);
-    els.favoriteDetail.textContent = favorite ? "★" : "☆";
     els.favoriteDetail.setAttribute("aria-label", favorite ? "Remover dos favoritos" : "Adicionar aos favoritos");
   }
 }
@@ -317,7 +349,7 @@ function openDetail(codeValue, { push = true } = {}) {
   if (!code) return;
   state.activeCode = code;
   els.detailContent.innerHTML = `
-    <span class="detailCode">${escapeHTML(code.code)}</span>
+    <span class="detailCode" style="--classification-color:${CLASS_COLORS[code.classification] || CLASS_COLORS["OUTROS DIAGNÓSTICOS"]}">${escapeHTML(code.code)}</span>
     <h2 id="detailTitle">${escapeHTML(code.title)}</h2>
     <div class="detailMeta"><span class="metaPill">${escapeHTML(toTitleCase(code.chapter))}</span><span class="metaPill">${escapeHTML(CLASS_LABELS[code.classification] || code.classification)}</span></div>
     ${detailField("Título leigo", code.plainTitle)}
@@ -408,7 +440,7 @@ function showToast(message) {
 function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
   writeStorage(STORAGE.theme, theme);
-  document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#0d1118" : "#f6f7f9";
+  document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#000000" : "#f2f2f7";
 }
 
 function toggleTheme() {
@@ -533,7 +565,7 @@ async function init() {
     state.chapters = data.chapters;
     els.shell.setAttribute("aria-busy", "false");
     updateFavoriteUI();
-    setView("search");
+    setView("classifications");
 
     const initialCode = new URL(location.href).searchParams.get("code");
     if (initialCode) openDetail(initialCode.toUpperCase(), { push: false });
