@@ -52,6 +52,19 @@ const CHAPTER_ICONS = {
   Z: "icons/chapters/sociais.png"
 };
 
+const CATALOG_PARTS = Object.freeze([
+  "assets/catalog/98d22b3dec7a1b6e.bin",
+  "assets/catalog/5090514bd2243e4e.bin",
+  "assets/catalog/c0bc64a577cf2665.bin",
+  "assets/catalog/cffe3ea7fa35961d.bin",
+  "assets/catalog/5ae918125c880255.bin",
+  "assets/catalog/75f1f90c3dff18ce.bin",
+  "assets/catalog/15bfcf84e1a3d82c.bin",
+  "assets/catalog/fca9ff4ffe427b62.bin",
+  "assets/catalog/129dac477303a7dc.bin"
+]);
+const CATALOG_SHA256 = "ecdff528a56065d9fbb46a637bff15b5fb0acd5a07a57d0b220e22594f4a3340";
+
 const CLASS_LABELS = {
   "PROCEDIMENTOS": "Procedimentos",
   "SINAIS/SINTOMAS": "Sinais e sintomas",
@@ -138,6 +151,40 @@ function prepareCode(code) {
     code.exclusion, code.consider, code.note
   ].filter(Boolean).join(" ");
   return { ...code, searchText: normalize(searchable), titleText: normalize(code.title) };
+}
+
+async function loadCatalog() {
+  const parts = await Promise.all(CATALOG_PARTS.map(async (path) => {
+    const response = await fetch(path, { cache: "force-cache", credentials: "same-origin" });
+    if (!response.ok) throw new Error(`Catalog part unavailable: ${response.status}`);
+    return new Uint8Array(await response.arrayBuffer());
+  }));
+
+  const length = parts.reduce((total, part) => total + part.length, 0);
+  const encoded = new Uint8Array(length);
+  let offset = 0;
+  parts.forEach((part) => {
+    encoded.set(part, offset);
+    offset += part.length;
+  });
+
+  const decoded = new Uint8Array(length);
+  let stream = 0x6d2b79f5;
+  for (let index = 0; index < encoded.length; index += 1) {
+    stream ^= stream << 13;
+    stream ^= stream >>> 17;
+    stream ^= stream << 5;
+    stream >>>= 0;
+    const mask = (stream + Math.imul(index + 1, 0x45d9f3b)) & 0xff;
+    const rotation = (index * 29 + 71) & 0xff;
+    decoded[index] = ((encoded[index] - rotation) & 0xff) ^ mask;
+  }
+
+  const digest = new Uint8Array(await crypto.subtle.digest("SHA-256", decoded));
+  const checksum = Array.from(digest, (byte) => byte.toString(16).padStart(2, "0")).join("");
+  if (checksum !== CATALOG_SHA256) throw new Error("Catalog integrity check failed");
+
+  return JSON.parse(new TextDecoder().decode(decoded));
 }
 
 function codeRow(code) {
@@ -557,9 +604,7 @@ async function init() {
   bindEvents();
 
   try {
-    const response = await fetch("data/ciap2.json");
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const data = await response.json();
+    const data = await loadCatalog();
     state.codes = data.codes.map(prepareCode);
     state.codeMap = new Map(state.codes.map((code) => [code.code, code]));
     state.chapters = data.chapters;
