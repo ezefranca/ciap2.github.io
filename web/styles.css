@@ -525,7 +525,7 @@ input:focus-visible {
 .chapterCard { background: var(--surface); }
 .classificationCard { min-height: 78px; color: #000; background: var(--class-color); }
 .chapterCard:hover,
-.classificationCard:hover { transform: none; border: 0; box-shadow: none; filter: brightness(.97); }
+.classificationCard:hover { transform: none; border: 0; box-shadow: none; }
 :root[data-theme="dark"] .chapterCard:hover { filter: brightness(1.08); }
 .categoryIcon { width: 30px; height: 30px; flex: 0 0 30px; object-fit: contain; }
 .classificationCard .categoryIcon { width: 32px; height: 32px; flex-basis: 32px; }

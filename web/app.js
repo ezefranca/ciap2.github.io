@@ -12,13 +12,13 @@ const VIEW_COPY = {
 };
 
 const CLASS_COLORS = {
-  "PROCEDIMENTOS": "#c1c0bc",
-  "SINAIS/SINTOMAS": "#c0deaf",
-  "INFECÇÕES": "#ffff8c",
-  "NEOPLASIAS": "#bcd8da",
-  "TRAUMATISMOS": "#ea9596",
-  "ANOMALIAS CONGÊNITAS": "#a19dc0",
-  "OUTROS DIAGNÓSTICOS": "#c497b8"
+  "PROCEDIMENTOS": "#9e9e9e",
+  "SINAIS/SINTOMAS": "#8bc34a",
+  "INFECÇÕES": "#ffeb3b",
+  "NEOPLASIAS": "#03a9f4",
+  "TRAUMATISMOS": "#ff7043",
+  "ANOMALIAS CONGÊNITAS": "#9c27b0",
+  "OUTROS DIAGNÓSTICOS": "#d7ccc8"
 };
 
 const CLASS_ICONS = {
