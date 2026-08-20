@@ -455,7 +455,7 @@
             <h2>Resumo da Política</h2>
             <div class="highlight-box">
                 <h4>TL;DR - O essencial</h4>
-                <p>O CIAP2 não exige cadastro, não exibe anúncios e não recebe o conteúdo das suas buscas ou favoritos. No aplicativo, os favoritos ficam no dispositivo e podem ser sincronizados pela sua conta iCloud. Na versão web, ficam somente no navegador.</p>
+                <p>O CIAP2 não exige cadastro, não exibe anúncios e não recebe o conteúdo das suas buscas ou favoritos. No Android, buscas, histórico e favoritos ficam somente no dispositivo. No iOS, os favoritos podem ser sincronizados pela sua conta iCloud. Na versão web, ficam somente no navegador.</p>
             </div>
         </section>
 
@@ -494,15 +494,21 @@
                     <tr>
                         <td>Favoritos</td>
                         <td><span class="badge-yes">Local</span></td>
-                        <td>Salvos no dispositivo, iCloud ou navegador, conforme a versão usada</td>
+                        <td>No Android, somente no dispositivo; no iOS, podem ser sincronizados pelo iCloud; na web, ficam no navegador</td>
                     </tr>
                     <tr>
                         <td>Sinais anônimos</td>
                         <td><span class="badge-yes">Opcional</span></td>
-                        <td>Via TelemetryDeck (detalhes abaixo)</td>
+                        <td>Somente no iOS, via TelemetryDeck (detalhes abaixo). Android e web não usam telemetria</td>
                     </tr>
                 </tbody>
             </table>
+        </section>
+
+        <section class="policy-section">
+            <h2>Versão Android</h2>
+            <p>O aplicativo para Android funciona offline e não inclui anúncios, rastreadores, analytics ou SDKs de coleta de dados. Buscas, histórico e favoritos são armazenados somente no dispositivo e não são enviados ao desenvolvedor ou compartilhados com terceiros.</p>
+            <p>A pesquisa por voz é opcional e iniciada pelo usuário. Quando utilizada, o áudio pode ser processado pelo serviço de reconhecimento de fala escolhido no Android, de acordo com a política desse fornecedor. O CIAP2 recebe apenas o texto reconhecido e não grava nem armazena arquivos de áudio.</p>
         </section>
 
         <section class="policy-section">
@@ -514,7 +520,7 @@
 
         <section class="policy-section">
             <h2>Telemetria Anônima (TelemetryDeck)</h2>
-            <p>No aplicativo para iOS, utilizamos o <strong>TelemetryDeck</strong> para receber sinais técnicos agregados que ajudam a identificar falhas e priorizar melhorias. A versão web não usa o TelemetryDeck.</p>
+            <p>No aplicativo para iOS, utilizamos o <strong>TelemetryDeck</strong> para receber sinais técnicos agregados que ajudam a identificar falhas e priorizar melhorias. As versões Android e web não usam o TelemetryDeck.</p>
 
             <div class="highlight-box blue">
                 <h4>O que o TelemetryDeck coleta</h4>
@@ -551,7 +557,7 @@
             <h2>Segurança</h2>
             <p>A segurança dos seus dados é fundamental:</p>
             <ul>
-                <li><strong>Dados locais:</strong> Informações no dispositivo são protegidas pelo sistema de segurança do iOS</li>
+                <li><strong>Dados locais:</strong> Informações no dispositivo são protegidas pelos sistemas de segurança do iOS ou Android</li>
                 <li><strong>Transmissão:</strong> Toda comunicação usa HTTPS com criptografia TLS</li>
                 <li><strong>iCloud:</strong> Sincronização protegida pela infraestrutura de segurança da Apple</li>
                 <li><strong>Sem servidores próprios:</strong> Não mantemos servidores que armazenem seus dados</li>
@@ -564,7 +570,7 @@
             <ul>
                 <li><strong>Acesso:</strong> Saber quais dados temos sobre você (resposta: nenhum dado pessoal)</li>
                 <li><strong>Portabilidade:</strong> Exportar seus favoritos (disponível no app)</li>
-                <li><strong>Exclusão:</strong> Deletar seus dados (desinstale o app ou desative iCloud)</li>
+                <li><strong>Exclusão:</strong> Deletar seus dados (remova-os no app, desinstale o aplicativo ou desative o iCloud, conforme a plataforma)</li>
                 <li><strong>Informação:</strong> Saber como seus dados são tratados (esta política)</li>
             </ul>
             <p>Para exercer qualquer direito ou tirar dúvidas, entre em contato pelo email de suporte.</p>
