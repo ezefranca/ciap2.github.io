@@ -220,14 +220,19 @@
             align-items: center;
         }
 
+        .hero-cta .store-badge,
+        .hero-cta .web-app-button {
+            flex: 0 0 auto;
+        }
+
         .hero-cta .store-badge img {
             height: 44px;
             width: auto;
         }
 
         .web-app-button {
-            width: 143px;
-            height: 44px;
+            width: 133px;
+            height: 40px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -252,8 +257,8 @@
         }
 
         .store-badges .web-app-button {
-            width: 176px;
-            height: 54px;
+            width: 163px;
+            height: 49px;
             padding: 0 16px;
             border-radius: 9px;
             font-size: 16px;
@@ -574,11 +579,17 @@
         .store-badges {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 16px;
             flex-wrap: wrap;
         }
 
         .store-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 auto;
+            line-height: 0;
             transition: transform 0.2s ease;
         }
 
