@@ -225,6 +225,36 @@
             width: auto;
         }
 
+        .web-app-button {
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 0 22px;
+            border: 1px solid var(--accent-blue);
+            border-radius: 10px;
+            color: white;
+            background: var(--accent-blue);
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .web-app-button:hover {
+            color: white;
+            background: var(--accent-blue-hover);
+            transform: translateY(-1px);
+        }
+
+        .store-badges .web-app-button {
+            min-height: 54px;
+            padding: 0 26px;
+            border-radius: 12px;
+            font-size: 16px;
+        }
+
         .btn-primary {
             display: inline-flex;
             align-items: center;
@@ -775,6 +805,7 @@
             <a href="index.html" class="nav-logo">CIAP2</a>
             <ul class="nav-links">
                 <li><a href="index.html">Início</a></li>
+                <li><a href="web/">Versão web</a></li>
                 <li><a href="artigos.html">Artigos</a></li>
                 <li><a href="privacidade.html">Privacidade</a></li>
                 <li><a href="suporte.html">Suporte</a></li>
@@ -790,6 +821,7 @@
                 <p class="hero-subtitle">A Classificação Internacional de Atenção Primária ao seu alcance. Busca rápida, uso offline, privacidade respeitada.</p>
 
                 <div class="hero-cta">
+                    <a href="web/" class="web-app-button">Abrir versão web <span aria-hidden="true">→</span></a>
                     <a href="https://apps.apple.com/app/apple-store/id1450836069?pt=95625862&ct=site&mt=8" class="store-badge">
                         <img src="images/app-badge/app-store.png" alt="Baixar na App Store">
                     </a>
@@ -831,8 +863,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6h16.5M3.75 12h16.5m-16.5 6h7.5"/>
                         </svg>
                     </div>
-                    <h3 class="feature-title">17 Categorias</h3>
-                    <p class="feature-desc">Navegue por todas as categorias do CIAP-2 com hierarquia visual clara.</p>
+                    <h3 class="feature-title">18 capítulos</h3>
+                    <p class="feature-desc">Navegue por todos os capítulos da CIAP-2 com hierarquia visual clara.</p>
                 </div>
 
                 <div class="feature-card fade-in">
@@ -862,7 +894,7 @@
                         </svg>
                     </div>
                     <h3 class="feature-title">Privacidade</h3>
-                    <p class="feature-desc">Sem anúncios, sem rastreadores, sem coleta de dados.</p>
+                    <p class="feature-desc">Sem anúncios ou cadastro. Buscas e favoritos não são enviados para nós.</p>
                 </div>
 
                 <div class="feature-card fade-in">
@@ -871,8 +903,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/>
                         </svg>
                     </div>
-                    <h3 class="feature-title">iOS e Android</h3>
-                    <p class="feature-desc">Disponível nas duas plataformas com a mesma experiência.</p>
+                    <h3 class="feature-title">App e versão web</h3>
+                    <p class="feature-desc">Use no celular ou consulte os 726 códigos diretamente no navegador.</p>
                 </div>
             </div>
         </div>
@@ -956,10 +988,11 @@
     <!-- CTA Section -->
     <section class="cta">
         <div class="section-container fade-in">
-            <h2>Baixe agora.</h2>
-            <p>Tenha a Classificação Internacional de Atenção Primária na palma da sua mão.</p>
+            <h2>Use onde preferir.</h2>
+            <p>Abra no navegador ou tenha a Classificação Internacional de Atenção Primária no celular.</p>
 
             <div class="store-badges">
+                <a href="web/" class="web-app-button">Usar no navegador <span aria-hidden="true">→</span></a>
                 <a href="https://apps.apple.com/app/apple-store/id1450836069?pt=95625862&ct=site&mt=8" class="store-badge">
                     <img src="images/app-badge/app-store.png" alt="Baixar na App Store">
                 </a>
@@ -976,6 +1009,7 @@
             <div class="footer-main">
                 <a href="index.html" class="nav-logo">CIAP2</a>
                 <ul class="footer-links">
+                    <li><a href="web/">Versão web</a></li>
                     <li><a href="artigos.html">Artigos</a></li>
                     <li><a href="privacidade.html">Privacidade</a></li>
                     <li><a href="suporte.html">Suporte</a></li>

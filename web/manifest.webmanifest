@@ -1,0 +1,19 @@
+{
+  "name": "CIAP2 — Consulta Rápida",
+  "short_name": "CIAP2",
+  "description": "Consulta rápida e offline aos códigos da CIAP-2.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f7f9",
+  "theme_color": "#1264e5",
+  "icons": [
+    {
+      "src": "icons/appicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

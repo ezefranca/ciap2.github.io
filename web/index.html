@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f6f7f9">
+    <meta name="description" content="Consulte os 726 códigos da CIAP-2 no navegador. Busca rápida, capítulos, classificações e favoritos locais.">
+    <meta name="robots" content="index,follow">
+    <title>CIAP2 Web — Consulta rápida à CIAP-2</title>
+    <link rel="canonical" href="https://ciap2.app/web/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CIAP2 Web — Consulta rápida à CIAP-2">
+    <meta property="og:description" content="Consulte os 726 códigos da CIAP-2 no navegador, com busca rápida, capítulos e favoritos locais.">
+    <meta property="og:url" content="https://ciap2.app/web/">
+    <meta property="og:image" content="https://ciap2.app/web/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CIAP2 Web — Consulta rápida à CIAP-2">
+    <meta name="twitter:description" content="Consulte os 726 códigos da CIAP-2 direto no navegador.">
+    <meta name="twitter:image" content="https://ciap2.app/web/og.png">
+    <link rel="icon" href="icons/appicon.png">
+    <link rel="apple-touch-icon" href="icons/appicon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="appShell" id="appShell" aria-busy="true">
+        <aside class="sidebar">
+            <a class="appBrand" href="../" aria-label="Voltar ao site do CIAP2">
+                <img src="icons/appicon.png" width="42" height="42" alt="">
+                <span><strong>CIAP2</strong><small>Versão web</small></span>
+            </a>
+
+            <nav class="sideNav" aria-label="Seções do aplicativo">
+                <button class="navItem isActive" data-view="search" type="button">
+                    <span class="navIcon" aria-hidden="true">⌕</span><span>Buscar</span>
+                </button>
+                <button class="navItem" data-view="chapters" type="button">
+                    <span class="navIcon" aria-hidden="true">▦</span><span>Capítulos</span>
+                </button>
+                <button class="navItem" data-view="classifications" type="button">
+                    <span class="navIcon" aria-hidden="true">◫</span><span>Classificações</span>
+                </button>
+                <button class="navItem" data-view="favorites" type="button">
+                    <span class="navIcon" aria-hidden="true">☆</span><span>Favoritos</span><span class="navCount" id="favoriteCount">0</span>
+                </button>
+            </nav>
+
+            <div class="sidebarFooter">
+                <button class="quietButton" id="themeButton" type="button" aria-label="Alterar aparência">
+                    <span aria-hidden="true">◐</span><span>Aparência</span>
+                </button>
+                <a class="quietButton" href="../privacidade.html">
+                    <span aria-hidden="true">ⓘ</span><span>Privacidade</span>
+                </a>
+                <p>Os favoritos ficam somente neste navegador.</p>
+            </div>
+        </aside>
+
+        <main class="mainContent">
+            <header class="mobileHeader">
+                <a class="mobileBrand" href="../"><img src="icons/appicon.png" alt="" width="34" height="34"><strong>CIAP2</strong></a>
+                <button class="iconButton" id="mobileThemeButton" type="button" aria-label="Alterar aparência">◐</button>
+            </header>
+
+            <div class="contentHeader">
+                <div>
+                    <p class="eyebrow" id="viewEyebrow">Consulta rápida</p>
+                    <h1 id="viewTitle">Buscar na CIAP-2</h1>
+                    <p class="viewDescription" id="viewDescription">Pesquise por código, termo clínico, descrição ou referência CID-10.</p>
+                </div>
+                <button class="secondaryButton isHidden" id="exportButton" type="button">Exportar favoritos</button>
+            </div>
+
+            <section class="searchPanel" id="searchPanel" aria-label="Busca">
+                <label class="searchBox" for="searchInput">
+                    <span aria-hidden="true">⌕</span>
+                    <input id="searchInput" type="search" autocomplete="off" spellcheck="false" placeholder="Ex.: diabetes, dor lombar, K86 ou R52" aria-describedby="searchHint">
+                    <kbd aria-hidden="true">/</kbd>
+                </label>
+                <p class="searchHint" id="searchHint">Use palavras sem se preocupar com acentos. Pressione Enter para guardar a pesquisa recente.</p>
+            </section>
+
+            <section id="content" class="contentArea" aria-live="polite">
+                <div class="loadingState">
+                    <span class="loader" aria-hidden="true"></span>
+                    <p>Carregando a classificação…</p>
+                </div>
+            </section>
+        </main>
+
+        <nav class="bottomNav" aria-label="Seções do aplicativo">
+            <button class="bottomNavItem isActive" data-view="search" type="button"><span aria-hidden="true">⌕</span><small>Buscar</small></button>
+            <button class="bottomNavItem" data-view="chapters" type="button"><span aria-hidden="true">▦</span><small>Capítulos</small></button>
+            <button class="bottomNavItem" data-view="classifications" type="button"><span aria-hidden="true">◫</span><small>Classes</small></button>
+            <button class="bottomNavItem" data-view="favorites" type="button"><span aria-hidden="true">☆</span><small>Favoritos</small></button>
+        </nav>
+    </div>
+
+    <dialog class="detailDialog" id="detailDialog" aria-labelledby="detailTitle">
+        <div class="detailShell">
+            <header class="detailHeader">
+                <button class="iconButton" id="closeDetail" type="button" aria-label="Fechar detalhes">×</button>
+                <div class="detailActions">
+                    <button class="iconButton" id="copyDetail" type="button" aria-label="Copiar código">□</button>
+                    <button class="iconButton" id="shareDetail" type="button" aria-label="Compartilhar código">↗</button>
+                    <button class="favoriteButton" id="favoriteDetail" type="button" aria-label="Adicionar aos favoritos">☆</button>
+                </div>
+            </header>
+            <article id="detailContent" class="detailContent"></article>
+        </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
