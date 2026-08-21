@@ -1,4 +1,4 @@
-CIAP2 — TEXTOS OFICIAIS PARA IMPRENSA
+CIAP2 — TEXTOS DE APOIO
 Atualizado em agosto de 2026
 
 NOME DO PRODUTO
@@ -38,7 +38,7 @@ Site e versão web: https://ciap2.app
 App Store: https://apps.apple.com/app/apple-store/id1450836069?pt=95625862&ct=site&mt=8
 Google Play: https://play.google.com/store/apps/details?id=com.ciap2&hl=pt_BR
 
-CONTATO DE IMPRENSA
+PERGUNTAS E CONTATO
 https://support.ezequiel.app
 
 OBSERVAÇÃO EDITORIAL

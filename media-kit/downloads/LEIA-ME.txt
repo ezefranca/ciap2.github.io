@@ -1,6 +1,6 @@
 CIAP2 — MEDIA KIT OFICIAL
 
-Este pacote reúne imagens e textos aprovados para matérias, entrevistas, apresentações e parcerias editoriais relacionadas ao CIAP2.
+Este pacote reúne imagens e textos oficiais do CIAP2.
 
 CONTEÚDO
 • Ícone oficial do aplicativo em alta resolução
@@ -17,6 +17,6 @@ ORIENTAÇÕES DE USO
 • Ao escrever sobre o produto, use “CIAP2”. Para a classificação, use “CIAP-2”.
 • Dê preferência às capturas que melhor combinem com o fundo e o contexto editorial.
 
-Para outros formatos, entrevistas ou confirmação de informações:
+Para dúvidas, outros formatos ou confirmação de informações:
 https://support.ezequiel.app
 https://ciap2.app/media-kit.html

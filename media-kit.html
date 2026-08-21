@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Kit — CIAP2</title>
-    <meta name="description" content="Textos, dados, imagens e recursos oficiais do CIAP2 para imprensa, parceiros e criadores.">
+    <meta name="description" content="Informações, textos e imagens oficiais do CIAP2, reunidos em um só lugar.">
     <link rel="canonical" href="https://ciap2.app/media-kit.html">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:title" content="Media Kit oficial — CIAP2">
-    <meta property="og:description" content="Textos, dados, imagens e recursos oficiais do CIAP2 para imprensa, parceiros e criadores.">
+    <meta property="og:description" content="Informações, textos e imagens oficiais do CIAP2, reunidos em um só lugar.">
     <meta property="og:url" content="https://ciap2.app/media-kit.html">
     <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="favicon.ico">
     <script>
         (function () {
-            var saved = localStorage.getItem('ciap2.media.theme');
+            var saved = null;
+            try { saved = localStorage.getItem('ciap2.media.theme'); } catch (error) {}
             var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
             document.documentElement.dataset.theme = dark ? 'dark' : 'light';
         }());
@@ -88,10 +89,11 @@
         .nav-links a { color: var(--secondary); font-size: 14px; text-decoration: none; }
         .nav-links a:hover { color: var(--text); }
         .theme-toggle {
-            width: 44px; height: 44px; border: 0; border-radius: 50%; cursor: pointer;
-            display: grid; place-items: center; background: var(--surface); color: var(--text); box-shadow: inset 0 0 0 1px var(--line);
+            min-width: 44px; height: 44px; padding: 0 15px; border: 0; border-radius: 999px; cursor: pointer;
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--surface); color: var(--text); box-shadow: inset 0 0 0 1px var(--line);
         }
         .theme-toggle svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+        .theme-label { font: 650 13px/1 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; white-space: nowrap; }
         html[data-theme="light"] .sun, html[data-theme="dark"] .moon { display: none; }
 
         .hero { padding: 90px 0 74px; overflow: hidden; }
@@ -141,10 +143,18 @@
         .text-link:hover { text-decoration: underline; }
 
         .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .gallery-heading { margin: 0 0 22px; font-size: 22px; letter-spacing: -.025em; }
+        .gallery-heading:not(:first-of-type) { margin-top: 54px; }
+        .ios-gallery { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
         .shot { margin: 0; overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: 28px; }
         .shot.wide { grid-column: 1 / -1; }
         .shot-frame { aspect-ratio: 16 / 9; overflow: hidden; background: #ececf0; }
         .shot-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .shot.ios { border-radius: 24px; }
+        .shot.ios .shot-frame { aspect-ratio: 1206 / 2622; background: #000; }
+        .shot.ios .shot-frame img { object-fit: contain; }
+        .shot.ios figcaption { align-items: flex-start; padding: 17px; }
+        .shot.ios figcaption .text-link { font-size: 13px; }
         .shot.phone .shot-frame { aspect-ratio: 16 / 10; display: grid; place-items: center; background: linear-gradient(145deg, #e9faff, #84daf0); }
         html[data-theme="dark"] .shot.phone .shot-frame { background: linear-gradient(145deg, #0e2831, #006282); }
         .shot.phone img { width: auto; height: 122%; object-fit: contain; transform: translateY(10%); filter: drop-shadow(0 20px 24px rgba(0,0,0,.22)); }
@@ -201,6 +211,7 @@
             .fact:nth-child(2) { border-right: 0; }
             .fact:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
             .timeline { grid-template-columns: 1fr; }
+            .ios-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
         }
         @media (max-width: 640px) {
             .nav-inner, .container { width: min(100% - 28px, 1180px); }
@@ -214,6 +225,10 @@
             .section { padding: 76px 0; }
             .section-heading { gap: 20px; margin-bottom: 34px; }
             .gallery { grid-template-columns: 1fr; }
+            .ios-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+            .shot.ios { border-radius: 20px; }
+            .shot.ios figcaption { display: block; padding: 14px; }
+            .shot.ios figcaption .text-link { display: inline-block; margin-top: 10px; }
             .shot.wide { grid-column: auto; }
             .shot.phone .shot-frame { aspect-ratio: 1 / 1; }
             .copy-card { padding: 28px 24px 78px; }
@@ -243,6 +258,7 @@
             <button class="theme-toggle" type="button" aria-label="Usar tema escuro" aria-pressed="false">
                 <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.2A8.4 8.4 0 0 1 8.8 4a8.4 8.4 0 1 0 11.2 11.2Z"/></svg>
                 <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                <span class="theme-label">Tema escuro</span>
             </button>
         </div>
     </nav>
@@ -253,10 +269,10 @@
                 <div>
                     <p class="eyebrow">Media Kit oficial</p>
                     <h1>CIAP2 em palavras e imagens.</h1>
-                    <p class="hero-copy">Recursos oficiais para jornalistas, parceiros e criadores: informações verificadas, textos prontos, imagens em alta resolução e orientações de marca.</p>
+                    <p class="hero-copy">Informações, textos e imagens oficiais do CIAP2, reunidos em um só lugar.</p>
                     <div class="actions">
                         <a class="button" href="media-kit/downloads/ciap2-media-kit.zip" download>Baixar kit completo <span aria-hidden="true">↓</span></a>
-                        <a class="button secondary" href="https://support.ezequiel.app">Falar com a equipe</a>
+                        <a class="button secondary" href="https://support.ezequiel.app">Fazer uma pergunta</a>
                     </div>
                 </div>
                 <div class="hero-art" aria-label="Aplicativo CIAP2 em um iPhone">
@@ -278,8 +294,8 @@
         <section class="section" id="textos">
             <div class="container">
                 <div class="section-heading">
-                    <h2>Textos aprovados.</h2>
-                    <p>Do título de uma nota ao perfil completo do produto. Copie e use como está ou adapte ao espaço editorial, preservando os fatos.</p>
+                    <h2>Textos sobre o CIAP2.</h2>
+                    <p>Algumas descrições curtas para apresentar o projeto. Use como referência e adapte ao seu contexto.</p>
                 </div>
                 <div class="copy-stack">
                     <article class="copy-card">
@@ -311,8 +327,32 @@
             <div class="container">
                 <div class="section-heading">
                     <h2>Imagens do produto.</h2>
-                    <p>Capturas atuais e sem tratamento editorial. Use a versão que melhor se integra ao fundo e ao formato da publicação.</p>
+                    <p>Capturas atuais do aplicativo para iPhone e da versão web. Os arquivos abaixo podem ser baixados individualmente.</p>
                 </div>
+                <h3 class="gallery-heading">Aplicativo para iPhone</h3>
+                <div class="gallery ios-gallery">
+                    <figure class="shot ios">
+                        <div class="shot-frame"><img src="media-kit/assets/screenshots/ios/classificacao-claro.png" alt="Classificação do CIAP2 no iPhone em modo claro" loading="lazy"></div>
+                        <figcaption><span><span class="shot-title">Classificação</span><span class="shot-note">Modo claro · PNG</span></span><a class="text-link" href="media-kit/assets/screenshots/ios/classificacao-claro.png" download>Baixar</a></figcaption>
+                    </figure>
+                    <figure class="shot ios">
+                        <div class="shot-frame"><img src="media-kit/assets/screenshots/ios/capitulos-claro.png" alt="Capítulos do CIAP2 no iPhone em modo claro" loading="lazy"></div>
+                        <figcaption><span><span class="shot-title">Capítulos</span><span class="shot-note">Modo claro · PNG</span></span><a class="text-link" href="media-kit/assets/screenshots/ios/capitulos-claro.png" download>Baixar</a></figcaption>
+                    </figure>
+                    <figure class="shot ios">
+                        <div class="shot-frame"><img src="media-kit/assets/screenshots/ios/busca-claro.png" alt="Busca do CIAP2 no iPhone em modo claro" loading="lazy"></div>
+                        <figcaption><span><span class="shot-title">Busca</span><span class="shot-note">Modo claro · PNG</span></span><a class="text-link" href="media-kit/assets/screenshots/ios/busca-claro.png" download>Baixar</a></figcaption>
+                    </figure>
+                    <figure class="shot ios">
+                        <div class="shot-frame"><img src="media-kit/assets/screenshots/ios/favoritos-claro.png" alt="Favoritos do CIAP2 no iPhone em modo claro" loading="lazy"></div>
+                        <figcaption><span><span class="shot-title">Favoritos</span><span class="shot-note">Modo claro · PNG</span></span><a class="text-link" href="media-kit/assets/screenshots/ios/favoritos-claro.png" download>Baixar</a></figcaption>
+                    </figure>
+                    <figure class="shot ios">
+                        <div class="shot-frame"><img src="media-kit/assets/screenshots/ios/classificacao-escuro.png" alt="Classificação do CIAP2 no iPhone em modo escuro" loading="lazy"></div>
+                        <figcaption><span><span class="shot-title">Classificação</span><span class="shot-note">Modo escuro · PNG</span></span><a class="text-link" href="media-kit/assets/screenshots/ios/classificacao-escuro.png" download>Baixar</a></figcaption>
+                    </figure>
+                </div>
+                <h3 class="gallery-heading">Versão web</h3>
                 <div class="gallery">
                     <figure class="shot">
                         <div class="shot-frame"><img src="media-kit/assets/screenshots/web-light.jpg" alt="Versão web do CIAP2 em modo claro" loading="lazy"></div>
@@ -416,8 +456,8 @@
         <section class="contact">
             <div class="container">
                 <div class="contact-card">
-                    <h2>Precisa de outra imagem ou de uma entrevista?</h2>
-                    <p>Para confirmação de informações, formatos adicionais, parcerias editoriais ou conversas sobre o projeto, fale diretamente com a equipe do CIAP2.</p>
+                    <h2>Ficou com alguma dúvida?</h2>
+                    <p>Se precisar confirmar uma informação, pedir outro formato de imagem ou tiver alguma pergunta sobre o CIAP2, use a central de suporte.</p>
                     <a class="button" href="https://support.ezequiel.app">support.ezequiel.app</a>
                 </div>
             </div>
@@ -447,16 +487,21 @@
         (function () {
             var root = document.documentElement;
             var toggle = document.querySelector('.theme-toggle');
+            var label = toggle ? toggle.querySelector('.theme-label') : null;
             function syncToggle() {
                 var dark = root.dataset.theme === 'dark';
+                if (!toggle) return;
                 toggle.setAttribute('aria-pressed', String(dark));
                 toggle.setAttribute('aria-label', dark ? 'Usar tema claro' : 'Usar tema escuro');
+                if (label) label.textContent = dark ? 'Tema claro' : 'Tema escuro';
             }
-            toggle.addEventListener('click', function () {
-                root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-                localStorage.setItem('ciap2.media.theme', root.dataset.theme);
-                syncToggle();
-            });
+            if (toggle) {
+                toggle.addEventListener('click', function () {
+                    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+                    try { localStorage.setItem('ciap2.media.theme', root.dataset.theme); } catch (error) {}
+                    syncToggle();
+                });
+            }
             syncToggle();
 
             document.querySelectorAll('[data-copy-target]').forEach(function (button) {
