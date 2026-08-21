@@ -11,10 +11,10 @@ DESCRIÇÃO CURTA
 CIAP2 é uma ferramenta gratuita para consultar a Classificação Internacional de Atenção Primária no iPhone, Android e navegador. Reúne busca rápida, uso offline, favoritos e conteúdo organizado para a rotina de profissionais e estudantes da saúde.
 
 TEXTO INSTITUCIONAL
-Lançado em 2017, o CIAP2 facilita a consulta aos 726 códigos da Classificação Internacional de Atenção Primária, organizados em 18 capítulos. Gratuito, sem anúncios e sem compras dentro do aplicativo, está disponível para iPhone, Android e navegador. A experiência reúne busca, acesso offline e favoritos para apoiar a rotina de profissionais e estudantes da saúde. O projeto surgiu de um trabalho acadêmico e foi apresentado em dois congressos nacionais em 2019. O uso da classificação no aplicativo é autorizado pela Sociedade Brasileira de Medicina de Família e Comunidade (SBMFC).
+Lançado em 2017, o CIAP2 facilita a consulta aos 726 códigos da Classificação Internacional de Atenção Primária, organizados em 18 capítulos. Criado por Vanessa Dina Palomino Castillo e Ezequiel França dos Santos, é gratuito, sem anúncios e sem compras dentro do aplicativo, com versões para iPhone, Android e navegador. A experiência reúne busca, acesso offline e favoritos para apoiar a rotina de profissionais e estudantes da saúde. O projeto foi apresentado em dois congressos nacionais em 2019. O conteúdo da classificação é utilizado com autorização da Sociedade Brasileira de Medicina de Família e Comunidade (SBMFC).
 
-SOBRE O DESENVOLVEDOR
-CIAP2 é um projeto independente criado e mantido pelo desenvolvedor brasileiro Ezequiel Santos. Desde 2017, o aplicativo evolui com foco em acesso simples, desempenho, privacidade e utilidade para a Atenção Primária à Saúde.
+SOBRE OS CRIADORES
+CIAP2 é um projeto independente criado por Vanessa Dina Palomino Castillo e Ezequiel França dos Santos a partir da colaboração entre prática clínica em Medicina de Família e Comunidade e desenvolvimento de software. Desde 2017, o aplicativo evolui com foco em acesso simples, desempenho, privacidade e utilidade para a Atenção Primária à Saúde.
 
 DADOS PRINCIPAIS
 • Lançamento: 2017
@@ -26,9 +26,12 @@ DADOS PRINCIPAIS
 • Busca, acesso offline e favoritos
 • Autorizado pela SBMFC para uso da classificação
 
+DIREITOS DA CLASSIFICAÇÃO
+A CIAP-2 é © WONCA (World Organization of Family Doctors). A edição brasileira foi publicada sob permissão da WONCA e é © 2009 Sociedade Brasileira de Medicina de Família e Comunidade (SBMFC), que detém os direitos de publicação em língua portuguesa. O conteúdo da classificação no CIAP2 é utilizado com autorização do Grupo de Trabalho de Prontuário e Classificação da SBMFC.
+
 PUBLICAÇÕES E APRESENTAÇÕES
-• “Desenvolvimento de um aplicativo para consulta ao CIAP-2” — 15º Congresso Brasileiro de Medicina de Família e Comunidade, 2019.
-• “Consulta ao Sistema de Classificação Internacional de Atenção Primária” — 9º Congresso Brasileiro de Telemedicina e Telessaúde, 2019.
+• Vanessa Dina Palomino Castillo; Ezequiel França dos Santos. “Desenvolvimento de um aplicativo para consulta ao CIAP-2” — 15º Congresso Brasileiro de Medicina de Família e Comunidade, 2019.
+• Ezequiel França dos Santos; Vanessa Dina Palomino Castillo. “Desenvolvimento de um aplicativo para consulta ao Sistema de Classificação Internacional de Atenção Primária - Segunda Edição (CIAP2)” — 9º Congresso Brasileiro de Telemedicina e Telessaúde, 2019.
 
 LINKS
 Site e versão web: https://ciap2.app

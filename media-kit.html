@@ -166,6 +166,9 @@
         .rules li::before { content: "✓"; position: absolute; left: 2px; color: var(--accent); font-weight: 800; }
         .badges { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 26px; }
         .badges img { height: 46px; width: auto; }
+        .rights-note { margin-top: 28px; padding: 22px; border-radius: 18px; background: var(--surface-soft); border: 1px solid var(--line); }
+        .rights-note h3 { font-size: 16px; }
+        .rights-note p { margin: 9px 0 0; color: var(--secondary); font-size: 13px; line-height: 1.6; }
 
         .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
         .milestone { padding: 28px; border-radius: 24px; background: var(--surface); border: 1px solid var(--line); }
@@ -291,13 +294,13 @@
                     </article>
                     <article class="copy-card">
                         <small>Texto institucional</small>
-                        <p id="copy-long">Lançado em 2017, o CIAP2 facilita a consulta aos 726 códigos da Classificação Internacional de Atenção Primária, organizados em 18 capítulos. Gratuito, sem anúncios e sem compras dentro do aplicativo, está disponível para iPhone, Android e navegador. A experiência reúne busca, acesso offline e favoritos para apoiar a rotina de profissionais e estudantes da saúde. O projeto surgiu de um trabalho acadêmico e foi apresentado em dois congressos nacionais em 2019. O uso da classificação no aplicativo é autorizado pela Sociedade Brasileira de Medicina de Família e Comunidade (SBMFC).</p>
+                        <p id="copy-long">Lançado em 2017, o CIAP2 facilita a consulta aos 726 códigos da Classificação Internacional de Atenção Primária, organizados em 18 capítulos. Criado por Vanessa Dina Palomino Castillo e Ezequiel França dos Santos, é gratuito, sem anúncios e sem compras dentro do aplicativo, com versões para iPhone, Android e navegador. A experiência reúne busca, acesso offline e favoritos para apoiar a rotina de profissionais e estudantes da saúde. O projeto foi apresentado em dois congressos nacionais em 2019. O conteúdo da classificação é utilizado com autorização da Sociedade Brasileira de Medicina de Família e Comunidade (SBMFC).</p>
                         <button class="copy-button" type="button" data-copy-target="copy-long">Copiar</button>
                     </article>
                     <article class="copy-card">
-                        <small>Sobre o desenvolvedor</small>
-                        <p id="copy-developer">CIAP2 é um projeto independente criado e mantido pelo desenvolvedor brasileiro Ezequiel Santos. Desde 2017, o aplicativo evolui com foco em acesso simples, desempenho, privacidade e utilidade para a Atenção Primária à Saúde.</p>
-                        <button class="copy-button" type="button" data-copy-target="copy-developer">Copiar</button>
+                        <small>Sobre os criadores</small>
+                        <p id="copy-creators">CIAP2 é um projeto independente criado por Vanessa Dina Palomino Castillo e Ezequiel França dos Santos a partir da colaboração entre prática clínica em Medicina de Família e Comunidade e desenvolvimento de software. Desde 2017, o aplicativo evolui com foco em acesso simples, desempenho, privacidade e utilidade para a Atenção Primária à Saúde.</p>
+                        <button class="copy-button" type="button" data-copy-target="copy-creators">Copiar</button>
                     </article>
                 </div>
                 <p class="download-line"><a class="text-link" href="media-kit/downloads/textos-ciap2.txt" download>Baixar todos os textos em .txt</a></p>
@@ -318,6 +321,30 @@
                     <figure class="shot">
                         <div class="shot-frame"><img src="media-kit/assets/screenshots/web-dark.jpg" alt="Versão web do CIAP2 em modo escuro" loading="lazy"></div>
                         <figcaption><span><span class="shot-title">Versão web — modo escuro</span><span class="shot-note">1280 × 720 px · JPG</span></span><a class="text-link" href="media-kit/assets/screenshots/web-dark.jpg" download>Baixar</a></figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <div class="shot-frame"><img src="media-kit/assets/screenshots/web-chapters-light.jpg" alt="Capítulos da versão web do CIAP2 em modo claro" loading="lazy"></div>
+                        <figcaption><span><span class="shot-title">Capítulos — modo claro</span><span class="shot-note">1280 × 720 px · JPG</span></span><a class="text-link" href="media-kit/assets/screenshots/web-chapters-light.jpg" download>Baixar</a></figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <div class="shot-frame"><img src="media-kit/assets/screenshots/web-search-light.jpg" alt="Busca por asma na versão web do CIAP2 em modo claro" loading="lazy"></div>
+                        <figcaption><span><span class="shot-title">Busca clínica — modo claro</span><span class="shot-note">1280 × 720 px · JPG</span></span><a class="text-link" href="media-kit/assets/screenshots/web-search-light.jpg" download>Baixar</a></figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <div class="shot-frame"><img src="media-kit/assets/screenshots/web-favorites-light.jpg" alt="Favoritos da versão web do CIAP2 em modo claro" loading="lazy"></div>
+                        <figcaption><span><span class="shot-title">Favoritos — modo claro</span><span class="shot-note">1280 × 720 px · JPG</span></span><a class="text-link" href="media-kit/assets/screenshots/web-favorites-light.jpg" download>Baixar</a></figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <div class="shot-frame"><img src="media-kit/assets/screenshots/web-favorites-dark.jpg" alt="Favoritos da versão web do CIAP2 em modo escuro" loading="lazy"></div>
+                        <figcaption><span><span class="shot-title">Favoritos — modo escuro</span><span class="shot-note">1280 × 720 px · JPG</span></span><a class="text-link" href="media-kit/assets/screenshots/web-favorites-dark.jpg" download>Baixar</a></figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <div class="shot-frame"><img src="media-kit/assets/screenshots/web-detail-light.jpg" alt="Detalhes do código de asma na versão web do CIAP2 em modo claro" loading="lazy"></div>
+                        <figcaption><span><span class="shot-title">Detalhe de código — modo claro</span><span class="shot-note">1280 × 720 px · JPG</span></span><a class="text-link" href="media-kit/assets/screenshots/web-detail-light.jpg" download>Baixar</a></figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <div class="shot-frame"><img src="media-kit/assets/screenshots/web-detail-dark.jpg" alt="Detalhes do código de asma na versão web do CIAP2 em modo escuro" loading="lazy"></div>
+                        <figcaption><span><span class="shot-title">Detalhe de código — modo escuro</span><span class="shot-note">1280 × 720 px · JPG</span></span><a class="text-link" href="media-kit/assets/screenshots/web-detail-dark.jpg" download>Baixar</a></figcaption>
                     </figure>
                     <figure class="shot phone wide">
                         <div class="shot-frame"><img src="media-kit/assets/ciap2-iphone-classificacao.png" alt="Tela de classificação do CIAP2 apresentada em um iPhone" loading="lazy"></div>
@@ -363,6 +390,10 @@
                             <div class="swatch" style="background:#c497b8">#C497B8<br>Outros diagnósticos</div>
                             <div class="swatch" style="background:#2cc7eb">#2CC7EB<br>CIAP2</div>
                         </div>
+                        <div class="rights-note">
+                            <h3>Direitos da classificação</h3>
+                            <p>A CIAP-2 é © <a class="text-link" href="https://www.globalfamilydoctor.com/groups/WorkingParties/wicc.aspx">WONCA</a> (World Organization of Family Doctors). A <a class="text-link" href="https://sbmfc.org.br/wp-content/uploads/2023/08/CIAP-2.pdf">edição brasileira</a> foi publicada sob permissão da WONCA e é © 2009 Sociedade Brasileira de Medicina de Família e Comunidade (SBMFC), que detém os direitos de publicação em língua portuguesa. O conteúdo da classificação no CIAP2 é utilizado com autorização do Grupo de Trabalho de Prontuário e Classificação da SBMFC.</p>
+                        </div>
                     </article>
                 </div>
             </div>
@@ -375,7 +406,7 @@
                     <p>O CIAP2 começou como trabalho acadêmico e cresceu mantendo a mesma ideia: tornar uma classificação importante mais fácil de consultar.</p>
                 </div>
                 <div class="timeline">
-                    <article class="milestone"><time datetime="2017">2017</time><h3>Primeira versão</h3><p>O CIAP2 é lançado como uma ferramenta independente para apoiar a consulta à classificação.</p></article>
+                    <article class="milestone"><time datetime="2017">2017</time><h3>Primeira versão</h3><p>Vanessa Dina Palomino Castillo e Ezequiel França dos Santos criam o CIAP2 para apoiar a consulta à classificação.</p></article>
                     <article class="milestone"><time datetime="2019">2019</time><h3>Reconhecimento acadêmico</h3><p>O projeto é apresentado no 15º CBMFC e no 9º Congresso Brasileiro de Telemedicina e Telessaúde.</p></article>
                     <article class="milestone"><time datetime="2026">2026</time><h3>CIAP2 no navegador</h3><p>A versão web amplia o acesso ao conteúdo e mantém busca e favoritos diretamente no navegador.</p></article>
                 </div>
@@ -407,7 +438,7 @@
             </div>
             <div class="footer-bottom">
                 <p>Copyright 2017-2026 CIAP2. Todos os direitos reservados.<br>Desenvolvido no Brasil para profissionais e estudantes da saúde.</p>
-                <p>A classificação CIAP-2 é protegida por direitos autorais. O aplicativo possui autorização da SBMFC para uso da classificação.</p>
+                <p>CIAP-2 © WONCA. Edição brasileira © 2009 SBMFC, detentora dos direitos de publicação em língua portuguesa. Conteúdo utilizado com autorização do Grupo de Trabalho de Prontuário e Classificação da SBMFC.</p>
             </div>
         </div>
     </footer>

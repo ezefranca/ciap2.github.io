@@ -5,7 +5,7 @@ Este pacote reúne imagens e textos aprovados para matérias, entrevistas, apres
 CONTEÚDO
 • Ícone oficial do aplicativo em alta resolução
 • Apresentação do aplicativo no iPhone
-• Capturas da versão web nos modos claro e escuro
+• Capturas de classificações, capítulos, busca, favoritos e detalhes de código nos modos claro e escuro
 • Selos oficiais da App Store e do Google Play
 • Textos institucionais e dados principais
 
@@ -13,6 +13,7 @@ ORIENTAÇÕES DE USO
 • Preserve as proporções, as cores e a área de respiro do ícone.
 • Não recorte, distorça, gire, aplique filtros nem altere as cores dos arquivos.
 • Não use os materiais de forma que sugira endosso da Apple, do Google ou da SBMFC além das informações expressamente declaradas nos textos oficiais.
+• A CIAP-2 é © WONCA; a edição brasileira © 2009 SBMFC tem seus direitos de publicação em língua portuguesa reservados à SBMFC.
 • Ao escrever sobre o produto, use “CIAP2”. Para a classificação, use “CIAP-2”.
 • Dê preferência às capturas que melhor combinem com o fundo e o contexto editorial.
 
