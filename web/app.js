@@ -85,6 +85,8 @@ const els = {
   viewDescription: document.querySelector("#viewDescription"),
   favoriteCount: document.querySelector("#favoriteCount"),
   exportButton: document.querySelector("#exportButton"),
+  installButton: document.querySelector("#installButton"),
+  mobileInstallButton: document.querySelector("#mobileInstallButton"),
   themeButton: document.querySelector("#themeButton"),
   mobileThemeButton: document.querySelector("#mobileThemeButton"),
   detailDialog: document.querySelector("#detailDialog"),
@@ -93,7 +95,9 @@ const els = {
   copyDetail: document.querySelector("#copyDetail"),
   shareDetail: document.querySelector("#shareDetail"),
   favoriteDetail: document.querySelector("#favoriteDetail"),
-  toast: document.querySelector("#toast")
+  toast: document.querySelector("#toast"),
+  updateNotice: document.querySelector("#updateNotice"),
+  updateButton: document.querySelector("#updateButton")
 };
 
 const state = {
@@ -106,7 +110,9 @@ const state = {
   history: readStorage(STORAGE.history, []),
   activeCode: null,
   toastTimer: null,
-  dialogPushed: false
+  dialogPushed: false,
+  deferredInstallPrompt: null,
+  waitingServiceWorker: null
 };
 
 function readStorage(key, fallback) {
@@ -316,7 +322,7 @@ function renderBrowseList() {
 function renderFavorites() {
   const favorites = [...state.favorites].map((code) => state.codeMap.get(code)).filter(Boolean);
   if (!favorites.length) {
-    els.content.innerHTML = emptyState("☆", "Nenhum favorito ainda", "Abra um código e toque na estrela para guardá-lo. Seus favoritos ficam somente neste navegador.", `<button class="primaryButton" data-action="go-search" type="button">Buscar códigos</button>`);
+    els.content.innerHTML = emptyState("☆", "Nenhum favorito ainda", "Abra um código e toque no marcador para guardá-lo. Seus favoritos ficam somente neste navegador.", `<button class="primaryButton" data-action="go-search" type="button">Buscar códigos</button>`);
     return;
   }
   favorites.sort((a, b) => a.code.localeCompare(b.code, "pt-BR"));
@@ -505,6 +511,79 @@ function exportFavorites() {
   showToast("Favoritos exportados");
 }
 
+function isStandalone() {
+  return matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+}
+
+function setInstallVisibility(visible) {
+  const shouldShow = visible && !isStandalone();
+  els.installButton.classList.toggle("isHidden", !shouldShow);
+  els.mobileInstallButton.classList.toggle("isHidden", !shouldShow);
+}
+
+async function requestInstall() {
+  if (state.deferredInstallPrompt) {
+    const prompt = state.deferredInstallPrompt;
+    state.deferredInstallPrompt = null;
+    await prompt.prompt();
+    await prompt.userChoice;
+    setInstallVisibility(false);
+    return;
+  }
+
+  showToast("No iPhone, toque em Compartilhar e em ‘Adicionar à Tela de Início’.");
+}
+
+function configureInstall() {
+  if (isStandalone()) return;
+
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  if (isIOS) setInstallVisibility(true);
+
+  addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+    state.deferredInstallPrompt = event;
+    setInstallVisibility(true);
+  });
+
+  addEventListener("appinstalled", () => {
+    state.deferredInstallPrompt = null;
+    setInstallVisibility(false);
+    showToast("CIAP2 instalado");
+  });
+}
+
+function offerServiceWorkerUpdate(registration) {
+  if (!registration.waiting || !navigator.serviceWorker.controller) return;
+  state.waitingServiceWorker = registration.waiting;
+  els.updateNotice.classList.remove("isHidden");
+}
+
+async function registerServiceWorker() {
+  try {
+    const registration = await navigator.serviceWorker.register("sw.js");
+    let refreshing = false;
+
+    offerServiceWorkerUpdate(registration);
+    registration.addEventListener("updatefound", () => {
+      const installing = registration.installing;
+      if (!installing) return;
+      installing.addEventListener("statechange", () => {
+        if (installing.state === "installed") offerServiceWorkerUpdate(registration);
+      });
+    });
+
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (refreshing) return;
+      refreshing = true;
+      location.reload();
+    });
+  } catch (error) {
+    console.warn("Service worker unavailable", error);
+  }
+}
+
 function bindEvents() {
   document.querySelectorAll("[data-view]").forEach((button) => button.addEventListener("click", () => setView(button.dataset.view, { focusSearch: button.dataset.view === "search" })));
   els.searchInput.addEventListener("input", renderSearch);
@@ -582,6 +661,12 @@ function bindEvents() {
   });
   els.themeButton.addEventListener("click", toggleTheme);
   els.mobileThemeButton.addEventListener("click", toggleTheme);
+  els.installButton.addEventListener("click", requestInstall);
+  els.mobileInstallButton.addEventListener("click", requestInstall);
+  els.updateButton.addEventListener("click", () => {
+    els.updateNotice.classList.add("isHidden");
+    state.waitingServiceWorker?.postMessage({ type: "SKIP_WAITING" });
+  });
   els.exportButton.addEventListener("click", exportFavorites);
 
   document.addEventListener("keydown", (event) => {
@@ -602,6 +687,7 @@ async function init() {
   const storedTheme = readStorage(STORAGE.theme, null);
   applyTheme(storedTheme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
   bindEvents();
+  configureInstall();
 
   try {
     const data = await loadCatalog();
@@ -610,9 +696,12 @@ async function init() {
     state.chapters = data.chapters;
     els.shell.setAttribute("aria-busy", "false");
     updateFavoriteUI();
-    setView("classifications");
+    const params = new URL(location.href).searchParams;
+    const initialView = params.get("view");
+    const allowedViews = new Set(["classifications", "chapters", "favorites", "search"]);
+    setView(allowedViews.has(initialView) ? initialView : "classifications", { focusSearch: initialView === "search" });
 
-    const initialCode = new URL(location.href).searchParams.get("code");
+    const initialCode = params.get("code");
     if (initialCode) openDetail(initialCode.toUpperCase(), { push: false });
   } catch (error) {
     console.error(error);
@@ -621,7 +710,8 @@ async function init() {
   }
 
   if ("serviceWorker" in navigator) {
-    addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+    if (document.readyState === "complete") registerServiceWorker();
+    else addEventListener("load", registerServiceWorker, { once: true });
   }
 }
 

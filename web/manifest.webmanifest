@@ -2,18 +2,61 @@
   "name": "CIAP2 — Consulta Rápida",
   "short_name": "CIAP2",
   "description": "Consulta rápida e offline aos códigos da CIAP-2.",
+  "id": "/web/",
   "lang": "pt-BR",
-  "start_url": "./",
-  "scope": "./",
+  "start_url": "/web/",
+  "scope": "/web/",
   "display": "standalone",
-  "background_color": "#f6f7f9",
-  "theme_color": "#1264e5",
+  "background_color": "#f2f2f7",
+  "theme_color": "#f2f2f7",
+  "categories": ["medical", "health", "education", "reference"],
   "icons": [
     {
-      "src": "icons/appicon.png",
+      "src": "icons/pwa-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/pwa-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "icons/pwa-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Buscar códigos",
+      "short_name": "Buscar",
+      "description": "Pesquisar por código ou termo clínico",
+      "url": "/web/?view=search"
+    },
+    {
+      "name": "Abrir favoritos",
+      "short_name": "Favoritos",
+      "description": "Ver os códigos guardados neste dispositivo",
+      "url": "/web/?view=favorites"
+    },
+    {
+      "name": "Ver capítulos",
+      "short_name": "Capítulos",
+      "description": "Consultar a CIAP-2 por capítulo",
+      "url": "/web/?view=chapters"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/classifications-wide.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Classificações da CIAP-2 na versão web"
     }
   ]
 }

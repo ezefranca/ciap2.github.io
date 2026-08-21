@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#f2f2f7">
+    <meta name="apple-mobile-web-app-title" content="CIAP2">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="description" content="Consulte os 726 códigos da CIAP-2 no navegador. Busca rápida, capítulos, classificações e favoritos locais.">
     <meta name="robots" content="index,follow">
     <title>CIAP2 Web — Consulta rápida à CIAP-2</title>
@@ -18,9 +20,9 @@
     <meta name="twitter:description" content="Consulte os 726 códigos da CIAP-2 direto no navegador.">
     <meta name="twitter:image" content="https://ciap2.app/web/og.png">
     <link rel="icon" href="icons/appicon.png">
-    <link rel="apple-touch-icon" href="icons/appicon.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
     <link rel="manifest" href="manifest.webmanifest">
-    <link rel="stylesheet" href="styles.css?v=6">
+    <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
     <div class="appShell" id="appShell" aria-busy="true">
@@ -46,6 +48,9 @@
             </nav>
 
             <div class="sidebarFooter">
+                <button class="quietButton isHidden" id="installButton" type="button">
+                    <span aria-hidden="true">↓</span><span>Instalar aplicativo</span>
+                </button>
                 <button class="quietButton" id="themeButton" type="button" aria-label="Alterar aparência">
                     <span aria-hidden="true">◐</span><span>Aparência</span>
                 </button>
@@ -62,7 +67,10 @@
         <main class="mainContent">
             <header class="mobileHeader">
                 <a class="mobileBrand" href="../"><img src="icons/appicon.png" alt="" width="34" height="34"><strong>CIAP2</strong></a>
-                <button class="iconButton" id="mobileThemeButton" type="button" aria-label="Alterar aparência">◐</button>
+                <div class="mobileHeaderActions">
+                    <button class="iconButton isHidden" id="mobileInstallButton" data-icon="install" type="button" aria-label="Instalar aplicativo"></button>
+                    <button class="iconButton" id="mobileThemeButton" type="button" aria-label="Alterar aparência">◐</button>
+                </div>
             </header>
 
             <div class="contentHeader">
@@ -113,7 +121,11 @@
         </div>
     </dialog>
 
+    <div class="updateNotice isHidden" id="updateNotice" role="status">
+        <span>Uma atualização do CIAP2 está pronta.</span>
+        <button id="updateButton" type="button">Atualizar</button>
+    </div>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script type="module" src="app.js?v=6"></script>
+    <script type="module" src="app.js?v=7"></script>
 </body>
 </html>

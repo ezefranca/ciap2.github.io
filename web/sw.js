@@ -1,11 +1,15 @@
-const CACHE_NAME = "ciap2-web-v6";
+const CACHE_NAME = "ciap2-web-v7";
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./styles.css?v=6",
-  "./app.js?v=6",
+  "./styles.css?v=7",
+  "./app.js?v=7",
   "./manifest.webmanifest",
   "./icons/appicon.png",
+  "./icons/apple-touch-icon.png",
+  "./icons/pwa-192.png",
+  "./icons/pwa-512.png",
+  "./icons/pwa-maskable-512.png",
   "./icons/chapters/procedimentos.png",
   "./icons/chapters/geral.png",
   "./icons/chapters/sangue.png",
@@ -39,19 +43,23 @@ const APP_SHELL = [
   "./assets/catalog/75f1f90c3dff18ce.bin",
   "./assets/catalog/15bfcf84e1a3d82c.bin",
   "./assets/catalog/fca9ff4ffe427b62.bin",
-  "./assets/catalog/129dac477303a7dc.bin",
-  "./og.png"
+  "./assets/catalog/129dac477303a7dc.bin"
 ];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)));
-  self.skipWaiting();
+});
+
+self.addEventListener("message", (event) => {
+  if (event.data?.type === "SKIP_WAITING") self.skipWaiting();
 });
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys()
-      .then((keys) => Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))))
+      .then((keys) => Promise.all(keys
+        .filter((key) => key.startsWith("ciap2-web-") && key !== CACHE_NAME)
+        .map((key) => caches.delete(key))))
       .then(() => self.clients.claim())
   );
 });
