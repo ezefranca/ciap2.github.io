@@ -36,7 +36,7 @@ App Store: https://apps.apple.com/app/apple-store/id1450836069?pt=95625862&ct=si
 Google Play: https://play.google.com/store/apps/details?id=com.ciap2&hl=pt_BR
 
 CONTATO DE IMPRENSA
-suporte@ciap2.app
+https://support.ezequiel.app
 
 OBSERVAÇÃO EDITORIAL
 O nome do produto é escrito como “CIAP2”. Ao mencionar a classificação, use “CIAP-2”.
