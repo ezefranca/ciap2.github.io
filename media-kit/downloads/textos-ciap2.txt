@@ -1,0 +1,42 @@
+CIAP2 — TEXTOS OFICIAIS PARA IMPRENSA
+Atualizado em agosto de 2026
+
+NOME DO PRODUTO
+CIAP2
+
+FRASE DE APRESENTAÇÃO
+A Classificação Internacional de Atenção Primária ao seu alcance.
+
+DESCRIÇÃO CURTA
+CIAP2 é uma ferramenta gratuita para consultar a Classificação Internacional de Atenção Primária no iPhone, Android e navegador. Reúne busca rápida, uso offline, favoritos e conteúdo organizado para a rotina de profissionais e estudantes da saúde.
+
+TEXTO INSTITUCIONAL
+Lançado em 2017, o CIAP2 facilita a consulta aos 726 códigos da Classificação Internacional de Atenção Primária, organizados em 18 capítulos. Gratuito, sem anúncios e sem compras dentro do aplicativo, está disponível para iPhone, Android e navegador. A experiência reúne busca, acesso offline e favoritos para apoiar a rotina de profissionais e estudantes da saúde. O projeto surgiu de um trabalho acadêmico e foi apresentado em dois congressos nacionais em 2019. O uso da classificação no aplicativo é autorizado pela Sociedade Brasileira de Medicina de Família e Comunidade (SBMFC).
+
+SOBRE O DESENVOLVEDOR
+CIAP2 é um projeto independente criado e mantido pelo desenvolvedor brasileiro Ezequiel Santos. Desde 2017, o aplicativo evolui com foco em acesso simples, desempenho, privacidade e utilidade para a Atenção Primária à Saúde.
+
+DADOS PRINCIPAIS
+• Lançamento: 2017
+• Mais de 50 mil downloads no iOS e Android
+• Nota 4,8 na App Store
+• 726 códigos organizados em 18 capítulos
+• Disponível para iPhone, Android e navegador
+• Gratuito, sem anúncios e sem compras dentro do aplicativo
+• Busca, acesso offline e favoritos
+• Autorizado pela SBMFC para uso da classificação
+
+PUBLICAÇÕES E APRESENTAÇÕES
+• “Desenvolvimento de um aplicativo para consulta ao CIAP-2” — 15º Congresso Brasileiro de Medicina de Família e Comunidade, 2019.
+• “Consulta ao Sistema de Classificação Internacional de Atenção Primária” — 9º Congresso Brasileiro de Telemedicina e Telessaúde, 2019.
+
+LINKS
+Site e versão web: https://ciap2.app
+App Store: https://apps.apple.com/app/apple-store/id1450836069?pt=95625862&ct=site&mt=8
+Google Play: https://play.google.com/store/apps/details?id=com.ciap2&hl=pt_BR
+
+CONTATO DE IMPRENSA
+suporte@ciap2.app
+
+OBSERVAÇÃO EDITORIAL
+O nome do produto é escrito como “CIAP2”. Ao mencionar a classificação, use “CIAP-2”.

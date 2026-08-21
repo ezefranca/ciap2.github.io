@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Kit — CIAP2</title>
+    <meta name="description" content="Textos, dados, imagens e recursos oficiais do CIAP2 para imprensa, parceiros e criadores.">
+    <link rel="canonical" href="https://ciap2.app/media-kit.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Media Kit oficial — CIAP2">
+    <meta property="og:description" content="Textos, dados, imagens e recursos oficiais do CIAP2 para imprensa, parceiros e criadores.">
+    <meta property="og:url" content="https://ciap2.app/media-kit.html">
+    <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="favicon.ico">
+    <script>
+        (function () {
+            var saved = localStorage.getItem('ciap2.media.theme');
+            var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        }());
+    </script>
+    <style>
+        :root {
+            color-scheme: light;
+            --page: #f5f5f7;
+            --surface: #ffffff;
+            --surface-soft: #fbfbfd;
+            --text: #1d1d1f;
+            --secondary: #6e6e73;
+            --tertiary: #86868b;
+            --line: rgba(0, 0, 0, 0.1);
+            --line-strong: rgba(0, 0, 0, 0.16);
+            --accent: #0071e3;
+            --accent-hover: #0077ed;
+            --accent-soft: rgba(0, 113, 227, 0.1);
+            --shadow: 0 22px 70px rgba(0, 0, 0, 0.1);
+            --nav: rgba(245, 245, 247, 0.82);
+        }
+
+        html[data-theme="dark"] {
+            color-scheme: dark;
+            --page: #000000;
+            --surface: #1c1c1e;
+            --surface-soft: #101011;
+            --text: #f5f5f7;
+            --secondary: #aeaeb2;
+            --tertiary: #8e8e93;
+            --line: rgba(255, 255, 255, 0.12);
+            --line-strong: rgba(255, 255, 255, 0.2);
+            --accent: #5ac8fa;
+            --accent-hover: #7dd4fb;
+            --accent-soft: rgba(90, 200, 250, 0.13);
+            --shadow: 0 22px 70px rgba(0, 0, 0, 0.42);
+            --nav: rgba(0, 0, 0, 0.78);
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            background: var(--page);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        img { display: block; max-width: 100%; }
+        a { color: inherit; }
+        button, a { -webkit-tap-highlight-color: transparent; }
+        :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+        .skip-link {
+            position: fixed; top: 10px; left: 10px; z-index: 100;
+            padding: 10px 14px; border-radius: 10px; background: var(--text); color: var(--page);
+            transform: translateY(-150%); transition: transform .2s ease;
+        }
+        .skip-link:focus { transform: translateY(0); }
+        .nav {
+            position: sticky; top: 0; z-index: 50; height: 64px;
+            background: var(--nav); border-bottom: 1px solid var(--line);
+            backdrop-filter: saturate(180%) blur(22px); -webkit-backdrop-filter: saturate(180%) blur(22px);
+        }
+        .nav-inner, .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+        .nav-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+        .brand { font-size: 20px; font-weight: 760; letter-spacing: -.03em; text-decoration: none; }
+        .nav-links { display: flex; align-items: center; gap: 26px; margin-left: auto; }
+        .nav-links a { color: var(--secondary); font-size: 14px; text-decoration: none; }
+        .nav-links a:hover { color: var(--text); }
+        .theme-toggle {
+            width: 44px; height: 44px; border: 0; border-radius: 50%; cursor: pointer;
+            display: grid; place-items: center; background: var(--surface); color: var(--text); box-shadow: inset 0 0 0 1px var(--line);
+        }
+        .theme-toggle svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+        html[data-theme="light"] .sun, html[data-theme="dark"] .moon { display: none; }
+
+        .hero { padding: 90px 0 74px; overflow: hidden; }
+        .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(350px, .78fr); align-items: center; gap: 72px; }
+        .eyebrow { margin: 0 0 20px; color: var(--accent); font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+        h1 { margin: 0; max-width: 760px; font-size: clamp(50px, 7.2vw, 92px); line-height: .96; letter-spacing: -.065em; }
+        .hero-copy { max-width: 700px; margin: 28px 0 0; color: var(--secondary); font-size: clamp(19px, 2vw, 25px); line-height: 1.45; letter-spacing: -.018em; }
+        .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+        .button {
+            min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+            padding: 0 20px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 15px; font-weight: 650; text-decoration: none;
+            transition: transform .18s ease, background .18s ease;
+        }
+        html[data-theme="dark"] .button { color: #00151e; }
+        .button:hover { background: var(--accent-hover); transform: translateY(-1px); }
+        .button.secondary { background: var(--surface); color: var(--text); box-shadow: inset 0 0 0 1px var(--line); }
+        .hero-art {
+            position: relative; min-height: 570px; display: grid; place-items: end center;
+            border-radius: 44px; background: linear-gradient(150deg, #dff8ff 0%, #48c8ea 47%, #007aaa 100%); overflow: hidden; box-shadow: var(--shadow);
+        }
+        html[data-theme="dark"] .hero-art { background: linear-gradient(150deg, #153946 0%, #006a8d 52%, #001a28 100%); }
+        .hero-icon { position: absolute; width: 110px; top: 30px; left: 30px; border-radius: 25%; box-shadow: 0 18px 42px rgba(0, 65, 85, .25); }
+        .hero-phone { width: min(84%, 405px); margin-bottom: -23%; filter: drop-shadow(0 28px 30px rgba(0,0,0,.2)); }
+
+        .facts { padding: 0 0 110px; }
+        .fact-grid { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--surface); border: 1px solid var(--line); border-radius: 28px; overflow: hidden; }
+        .fact { min-height: 150px; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--line); }
+        .fact:last-child { border-right: 0; }
+        .fact strong { font-size: clamp(30px, 4vw, 46px); line-height: 1; letter-spacing: -.045em; }
+        .fact span { color: var(--secondary); font-size: 14px; line-height: 1.4; }
+
+        .section { padding: 110px 0; border-top: 1px solid var(--line); }
+        .section-heading { display: grid; grid-template-columns: .68fr 1.32fr; gap: 56px; margin-bottom: 54px; }
+        .section-heading h2 { margin: 0; font-size: clamp(36px, 5vw, 62px); line-height: 1; letter-spacing: -.05em; }
+        .section-heading p { margin: 5px 0 0; max-width: 660px; color: var(--secondary); font-size: 19px; line-height: 1.55; }
+
+        .copy-stack { display: grid; gap: 16px; }
+        .copy-card { position: relative; padding: 30px 84px 30px 30px; background: var(--surface); border: 1px solid var(--line); border-radius: 24px; }
+        .copy-card small { display: block; margin-bottom: 13px; color: var(--tertiary); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+        .copy-card p { margin: 0; font-size: 18px; line-height: 1.6; }
+        .copy-button {
+            position: absolute; top: 22px; right: 22px; min-width: 44px; height: 44px; border: 0; border-radius: 999px;
+            background: var(--accent-soft); color: var(--accent); cursor: pointer; font: inherit; font-size: 13px; font-weight: 650; padding: 0 14px;
+        }
+        .download-line { margin-top: 20px; }
+        .text-link { color: var(--accent); font-weight: 600; text-decoration: none; }
+        .text-link:hover { text-decoration: underline; }
+
+        .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .shot { margin: 0; overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: 28px; }
+        .shot.wide { grid-column: 1 / -1; }
+        .shot-frame { aspect-ratio: 16 / 9; overflow: hidden; background: #ececf0; }
+        .shot-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .shot.phone .shot-frame { aspect-ratio: 16 / 10; display: grid; place-items: center; background: linear-gradient(145deg, #e9faff, #84daf0); }
+        html[data-theme="dark"] .shot.phone .shot-frame { background: linear-gradient(145deg, #0e2831, #006282); }
+        .shot.phone img { width: auto; height: 122%; object-fit: contain; transform: translateY(10%); filter: drop-shadow(0 20px 24px rgba(0,0,0,.22)); }
+        .shot figcaption { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 20px 22px; }
+        .shot-title { display: block; font-size: 15px; font-weight: 670; }
+        .shot-note { display: block; margin-top: 4px; color: var(--secondary); font-size: 13px; }
+
+        .brand-grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: 24px; }
+        .asset-card, .guide-card { padding: 30px; border-radius: 28px; background: var(--surface); border: 1px solid var(--line); }
+        .asset-preview { min-height: 330px; display: grid; place-items: center; border-radius: 20px; background: var(--surface-soft); border: 1px solid var(--line); }
+        .asset-preview img { width: 190px; border-radius: 24%; box-shadow: 0 20px 50px rgba(0, 120, 158, .2); }
+        .asset-meta { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 20px; }
+        .asset-meta h3, .guide-card h3 { margin: 0; font-size: 21px; letter-spacing: -.02em; }
+        .asset-meta p { margin: 4px 0 0; color: var(--secondary); font-size: 14px; }
+        .palette { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
+        .swatch { min-height: 100px; padding: 12px; border-radius: 16px; display: flex; flex-direction: column; justify-content: flex-end; color: #111; font-size: 11px; font-weight: 700; line-height: 1.3; border: 1px solid rgba(0,0,0,.07); }
+        .rules { margin: 26px 0 0; padding: 0; list-style: none; }
+        .rules li { position: relative; padding: 14px 0 14px 32px; border-top: 1px solid var(--line); color: var(--secondary); font-size: 15px; line-height: 1.5; }
+        .rules li::before { content: "✓"; position: absolute; left: 2px; color: var(--accent); font-weight: 800; }
+        .badges { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 26px; }
+        .badges img { height: 46px; width: auto; }
+
+        .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .milestone { padding: 28px; border-radius: 24px; background: var(--surface); border: 1px solid var(--line); }
+        .milestone time { color: var(--accent); font-size: 14px; font-weight: 750; }
+        .milestone h3 { margin: 18px 0 8px; font-size: 21px; }
+        .milestone p { margin: 0; color: var(--secondary); font-size: 15px; line-height: 1.55; }
+
+        .contact { padding: 110px 0; }
+        .contact-card { padding: clamp(38px, 7vw, 78px); border-radius: 36px; background: var(--text); color: var(--page); }
+        .contact-card h2 { margin: 0; max-width: 760px; font-size: clamp(42px, 6vw, 72px); line-height: 1; letter-spacing: -.055em; }
+        .contact-card p { max-width: 660px; margin: 22px 0 32px; color: color-mix(in srgb, var(--page) 70%, transparent); font-size: 18px; line-height: 1.55; }
+        .contact-card .button { background: var(--page); color: var(--text); }
+
+        .footer { padding: 40px 0 34px; border-top: 1px solid var(--line); }
+        .footer-main, .footer-bottom { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+        .footer-main { align-items: center; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+        .footer-links { display: flex; gap: 28px; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; }
+        .footer-links a { color: var(--secondary); font-size: 14px; text-decoration: none; }
+        .footer-bottom { margin-top: 24px; align-items: flex-start; }
+        .footer-bottom p { margin: 0; color: var(--tertiary); font-size: 11px; line-height: 1.55; max-width: 430px; }
+        .footer-bottom p:last-child { text-align: right; }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .hero { padding-top: 64px; }
+            .hero-grid, .section-heading, .brand-grid { grid-template-columns: 1fr; }
+            .hero-grid { gap: 48px; }
+            .hero-art { min-height: 520px; }
+            .fact-grid { grid-template-columns: repeat(2, 1fr); }
+            .fact:nth-child(2) { border-right: 0; }
+            .fact:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+            .timeline { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            .nav-inner, .container { width: min(100% - 28px, 1180px); }
+            .hero { padding: 48px 0 62px; }
+            h1 { font-size: 52px; }
+            .hero-art { min-height: 430px; border-radius: 30px; }
+            .hero-icon { width: 76px; top: 20px; left: 20px; }
+            .hero-phone { width: 86%; }
+            .facts { padding-bottom: 76px; }
+            .fact { min-height: 126px; padding: 22px; }
+            .section { padding: 76px 0; }
+            .section-heading { gap: 20px; margin-bottom: 34px; }
+            .gallery { grid-template-columns: 1fr; }
+            .shot.wide { grid-column: auto; }
+            .shot.phone .shot-frame { aspect-ratio: 1 / 1; }
+            .copy-card { padding: 28px 24px 78px; }
+            .copy-button { top: auto; bottom: 20px; left: 22px; right: auto; }
+            .palette { grid-template-columns: repeat(2, 1fr); }
+            .asset-preview { min-height: 260px; }
+            .footer-main, .footer-bottom { flex-direction: column; }
+            .footer-bottom p:last-child { text-align: left; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <nav class="nav" aria-label="Navegação principal">
+        <div class="nav-inner">
+            <a class="brand" href="index.html" aria-label="CIAP2 — início">CIAP2</a>
+            <div class="nav-links">
+                <a href="#textos">Textos</a>
+                <a href="#imagens">Imagens</a>
+                <a href="#marca">Marca</a>
+                <a href="#historia">História</a>
+            </div>
+            <button class="theme-toggle" type="button" aria-label="Usar tema escuro" aria-pressed="false">
+                <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.2A8.4 8.4 0 0 1 8.8 4a8.4 8.4 0 1 0 11.2 11.2Z"/></svg>
+                <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <main id="conteudo">
+        <header class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <p class="eyebrow">Media Kit oficial</p>
+                    <h1>CIAP2 em palavras e imagens.</h1>
+                    <p class="hero-copy">Recursos oficiais para jornalistas, parceiros e criadores: informações verificadas, textos prontos, imagens em alta resolução e orientações de marca.</p>
+                    <div class="actions">
+                        <a class="button" href="media-kit/downloads/ciap2-media-kit.zip" download>Baixar kit completo <span aria-hidden="true">↓</span></a>
+                        <a class="button secondary" href="mailto:suporte@ciap2.app?subject=Imprensa%20CIAP2">Falar com a equipe</a>
+                    </div>
+                </div>
+                <div class="hero-art" aria-label="Aplicativo CIAP2 em um iPhone">
+                    <img class="hero-icon" src="media-kit/assets/ciap2-app-icon.png" alt="Ícone do CIAP2">
+                    <img class="hero-phone" src="media-kit/assets/ciap2-iphone-classificacao.png" alt="Tela de classificação do CIAP2 em um iPhone">
+                </div>
+            </div>
+        </header>
+
+        <section class="facts" aria-label="Dados principais">
+            <div class="container fact-grid">
+                <div class="fact"><strong>2017</strong><span>ano de lançamento</span></div>
+                <div class="fact"><strong>50 mil+</strong><span>downloads no iOS e Android</span></div>
+                <div class="fact"><strong>4,8</strong><span>nota na App Store</span></div>
+                <div class="fact"><strong>726</strong><span>códigos em 18 capítulos</span></div>
+            </div>
+        </section>
+
+        <section class="section" id="textos">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Textos aprovados.</h2>
+                    <p>Do título de uma nota ao perfil completo do produto. Copie e use como está ou adapte ao espaço editorial, preservando os fatos.</p>
+                </div>
+                <div class="copy-stack">
+                    <article class="copy-card">
+                        <small>Frase de apresentação</small>
+                        <p id="copy-tagline">A Classificação Internacional de Atenção Primária ao seu alcance.</p>
+                        <button class="copy-button" type="button" data-copy-target="copy-tagline">Copiar</button>
+                    </article>
+                    <article class="copy-card">
+                        <small>Descrição curta</small>
+                        <p id="copy-short">CIAP2 é uma ferramenta gratuita para consultar a Classificação Internacional de Atenção Primária no iPhone, Android e navegador. Reúne busca rápida, uso offline, favoritos e conteúdo organizado para a rotina de profissionais e estudantes da saúde.</p>
+                        <button class="copy-button" type="button" data-copy-target="copy-short">Copiar</button>
+                    </article>
+                    <article class="copy-card">
+                        <small>Texto institucional</small>
+                        <p id="copy-long">Lançado em 2017, o CIAP2 facilita a consulta aos 726 códigos da Classificação Internacional de Atenção Primária, organizados em 18 capítulos. Gratuito, sem anúncios e sem compras dentro do aplicativo, está disponível para iPhone, Android e navegador. A experiência reúne busca, acesso offline e favoritos para apoiar a rotina de profissionais e estudantes da saúde. O projeto surgiu de um trabalho acadêmico e foi apresentado em dois congressos nacionais em 2019. O uso da classificação no aplicativo é autorizado pela Sociedade Brasileira de Medicina de Família e Comunidade (SBMFC).</p>
+                        <button class="copy-button" type="button" data-copy-target="copy-long">Copiar</button>
+                    </article>
+                    <article class="copy-card">
+                        <small>Sobre o desenvolvedor</small>
+                        <p id="copy-developer">CIAP2 é um projeto independente criado e mantido pelo desenvolvedor brasileiro Ezequiel Santos. Desde 2017, o aplicativo evolui com foco em acesso simples, desempenho, privacidade e utilidade para a Atenção Primária à Saúde.</p>
+                        <button class="copy-button" type="button" data-copy-target="copy-developer">Copiar</button>
+                    </article>
+                </div>
+                <p class="download-line"><a class="text-link" href="media-kit/downloads/textos-ciap2.txt" download>Baixar todos os textos em .txt</a></p>
+            </div>
+        </section>
+
+        <section class="section" id="imagens">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Imagens do produto.</h2>
+                    <p>Capturas atuais e sem tratamento editorial. Use a versão que melhor se integra ao fundo e ao formato da publicação.</p>
+                </div>
+                <div class="gallery">
+                    <figure class="shot">
+                        <div class="shot-frame"><img src="media-kit/assets/screenshots/web-light.jpg" alt="Versão web do CIAP2 em modo claro" loading="lazy"></div>
+                        <figcaption><span><span class="shot-title">Versão web — modo claro</span><span class="shot-note">1280 × 720 px · JPG</span></span><a class="text-link" href="media-kit/assets/screenshots/web-light.jpg" download>Baixar</a></figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <div class="shot-frame"><img src="media-kit/assets/screenshots/web-dark.jpg" alt="Versão web do CIAP2 em modo escuro" loading="lazy"></div>
+                        <figcaption><span><span class="shot-title">Versão web — modo escuro</span><span class="shot-note">1280 × 720 px · JPG</span></span><a class="text-link" href="media-kit/assets/screenshots/web-dark.jpg" download>Baixar</a></figcaption>
+                    </figure>
+                    <figure class="shot phone wide">
+                        <div class="shot-frame"><img src="media-kit/assets/ciap2-iphone-classificacao.png" alt="Tela de classificação do CIAP2 apresentada em um iPhone" loading="lazy"></div>
+                        <figcaption><span><span class="shot-title">CIAP2 no iPhone</span><span class="shot-note">Imagem com fundo transparente · PNG</span></span><a class="text-link" href="media-kit/assets/ciap2-iphone-classificacao.png" download>Baixar</a></figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="marca">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Marca e identidade.</h2>
+                    <p>Arquivos oficiais e regras simples para manter o CIAP2 reconhecível em qualquer contexto.</p>
+                </div>
+                <div class="brand-grid">
+                    <article class="asset-card">
+                        <div class="asset-preview"><img src="media-kit/assets/ciap2-app-icon.png" alt="Ícone oficial do aplicativo CIAP2" loading="lazy"></div>
+                        <div class="asset-meta">
+                            <div><h3>Ícone do aplicativo</h3><p>1024 × 1024 px · PNG</p></div>
+                            <a class="text-link" href="media-kit/assets/ciap2-app-icon.png" download>Baixar</a>
+                        </div>
+                    </article>
+                    <article class="guide-card">
+                        <h3>Uso correto</h3>
+                        <ul class="rules">
+                            <li>Escreva o produto como “CIAP2” e a classificação como “CIAP-2”.</li>
+                            <li>Preserve as proporções, as cores e uma área de respiro ao redor do ícone.</li>
+                            <li>Não recorte, distorça, gire, aplique filtros nem recolora os arquivos.</li>
+                            <li>Não sugira endosso institucional além das informações declaradas neste kit.</li>
+                        </ul>
+                        <div class="badges" aria-label="Selos das lojas">
+                            <a href="media-kit/assets/badges/app-store.png" download aria-label="Baixar selo da App Store"><img src="media-kit/assets/badges/app-store.png" alt="Disponível na App Store"></a>
+                            <a href="media-kit/assets/badges/google-play.png" download aria-label="Baixar selo do Google Play"><img src="media-kit/assets/badges/google-play.png" alt="Disponível no Google Play"></a>
+                        </div>
+                        <div class="palette" aria-label="Cores da classificação no aplicativo">
+                            <div class="swatch" style="background:#c1c0bc">#C1C0BC<br>Procedimentos</div>
+                            <div class="swatch" style="background:#c0deaf">#C0DEAF<br>Sinais e sintomas</div>
+                            <div class="swatch" style="background:#ffff8c">#FFFF8C<br>Infecções</div>
+                            <div class="swatch" style="background:#bcd8da">#BCD8DA<br>Neoplasias</div>
+                            <div class="swatch" style="background:#ea9596">#EA9596<br>Traumatismos</div>
+                            <div class="swatch" style="background:#a19dc0">#A19DC0<br>Anomalias</div>
+                            <div class="swatch" style="background:#c497b8">#C497B8<br>Outros diagnósticos</div>
+                            <div class="swatch" style="background:#2cc7eb">#2CC7EB<br>CIAP2</div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="historia">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Uma história útil.</h2>
+                    <p>O CIAP2 começou como trabalho acadêmico e cresceu mantendo a mesma ideia: tornar uma classificação importante mais fácil de consultar.</p>
+                </div>
+                <div class="timeline">
+                    <article class="milestone"><time datetime="2017">2017</time><h3>Primeira versão</h3><p>O CIAP2 é lançado como uma ferramenta independente para apoiar a consulta à classificação.</p></article>
+                    <article class="milestone"><time datetime="2019">2019</time><h3>Reconhecimento acadêmico</h3><p>O projeto é apresentado no 15º CBMFC e no 9º Congresso Brasileiro de Telemedicina e Telessaúde.</p></article>
+                    <article class="milestone"><time datetime="2026">2026</time><h3>CIAP2 no navegador</h3><p>A versão web amplia o acesso ao conteúdo e mantém busca e favoritos diretamente no navegador.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact">
+            <div class="container">
+                <div class="contact-card">
+                    <h2>Precisa de outra imagem ou de uma entrevista?</h2>
+                    <p>Para confirmação de informações, formatos adicionais, parcerias editoriais ou conversas sobre o projeto, fale diretamente com a equipe do CIAP2.</p>
+                    <a class="button" href="mailto:suporte@ciap2.app?subject=Imprensa%20CIAP2">suporte@ciap2.app</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <a href="index.html" class="brand">CIAP2</a>
+                <ul class="footer-links">
+                    <li><a href="web/">Versão web</a></li>
+                    <li><a href="artigos.html">Artigos</a></li>
+                    <li><a href="media-kit.html" aria-current="page">Media Kit</a></li>
+                    <li><a href="privacidade.html">Privacidade</a></li>
+                    <li><a href="suporte.html">Suporte</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright 2017-2026 CIAP2. Todos os direitos reservados.<br>Desenvolvido no Brasil para profissionais e estudantes da saúde.</p>
+                <p>A classificação CIAP-2 é protegida por direitos autorais. O aplicativo possui autorização da SBMFC para uso da classificação.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var toggle = document.querySelector('.theme-toggle');
+            function syncToggle() {
+                var dark = root.dataset.theme === 'dark';
+                toggle.setAttribute('aria-pressed', String(dark));
+                toggle.setAttribute('aria-label', dark ? 'Usar tema claro' : 'Usar tema escuro');
+            }
+            toggle.addEventListener('click', function () {
+                root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+                localStorage.setItem('ciap2.media.theme', root.dataset.theme);
+                syncToggle();
+            });
+            syncToggle();
+
+            document.querySelectorAll('[data-copy-target]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var target = document.getElementById(button.dataset.copyTarget);
+                    var text = target.textContent.trim();
+                    var done = function () {
+                        var original = button.textContent;
+                        button.textContent = 'Copiado';
+                        window.setTimeout(function () { button.textContent = original; }, 1600);
+                    };
+                    if (navigator.clipboard && window.isSecureContext) {
+                        navigator.clipboard.writeText(text).then(done);
+                    } else {
+                        var area = document.createElement('textarea');
+                        area.value = text; area.style.position = 'fixed'; area.style.opacity = '0';
+                        document.body.appendChild(area); area.select(); document.execCommand('copy'); area.remove(); done();
+                    }
+                });
+            });
+        }());
+    </script>
+</body>
+</html>

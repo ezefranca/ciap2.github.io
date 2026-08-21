@@ -4,30 +4,36 @@
     <loc>https://ciap2.app/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://ciap2.app/web/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://ciap2.app/media-kit.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://ciap2.app/artigos.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://ciap2.app/privacidade.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://ciap2.app/suporte.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
 </urlset>
