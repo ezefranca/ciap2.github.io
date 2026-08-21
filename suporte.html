@@ -133,10 +133,10 @@
             justify-content: center;
         }
 
-        .contact-icon svg {
-            width: 40px;
-            height: 40px;
-            color: white;
+        .contact-icon span {
+            font-size: 38px;
+            font-weight: 600;
+            line-height: 1;
         }
 
         .contact-title {
@@ -154,7 +154,7 @@
             margin-right: auto;
         }
 
-        .contact-email {
+        .contact-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -168,14 +168,9 @@
             transition: all 0.2s ease;
         }
 
-        .contact-email:hover {
+        .contact-link:hover {
             transform: scale(1.02);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-        }
-
-        .contact-email svg {
-            width: 20px;
-            height: 20px;
         }
 
         .faq-section h2 {
@@ -326,17 +321,12 @@
     <main class="content">
         <div class="contact-card">
             <div class="contact-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
+                <span aria-hidden="true">?</span>
             </div>
             <h2 class="contact-title">Precisa de ajuda?</h2>
             <p class="contact-desc">Dúvidas, sugestões ou problemas técnicos? Responderemos o mais rápido possível.</p>
-            <a href="mailto:suporte@ciap2.app" class="contact-email">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-                Enviar e-mail
+            <a href="https://support.ezequiel.app" class="contact-link">
+                Abrir central de suporte <span aria-hidden="true">↗</span>
             </a>
         </div>
 
@@ -365,7 +355,7 @@
 
             <div class="faq-item">
                 <h3 class="faq-question">Como posso sugerir melhorias?</h3>
-                <p class="faq-answer">Adoramos ouvir sugestões da comunidade! Envie um e-mail para nosso suporte descrevendo sua ideia ou necessidade. Todas as sugestões são avaliadas e consideradas para futuras atualizações.</p>
+                <p class="faq-answer">Adoramos ouvir sugestões da comunidade! Envie sua ideia ou necessidade pela nossa central de suporte. Todas as sugestões são avaliadas e consideradas para futuras atualizações.</p>
             </div>
 
             <div class="faq-item">
